@@ -1,0 +1,33 @@
+{
+  "name": "poke_stone",
+  "version": "1.0.0",
+  "description": "Turn based card pokemon card game",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "client": "npm -w client start",
+    "server": "npm -w server run develop",
+    "start": "concurrently --kill-others-on-fail \"npm run server\"  \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nupogodi/PokeStone.git"
+  },
+  "keywords": [
+    "pokemon",
+    "card",
+    "game",
+    "game",
+    "project"
+  ],
+  "author": "Alex Sherbin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nupogodi/PokeStone/issues"
+  },
+  "homepage": "https://github.com/Nupogodi/PokeStone#readme",
+  "dependencies": {
+    "concurrently": "^6.2.2"
+  }
+}
