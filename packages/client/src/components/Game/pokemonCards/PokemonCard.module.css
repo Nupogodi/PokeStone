@@ -1,0 +1,15 @@
+.card-action {
+    padding-top: 10px;
+
+}
+
+.card-action .card-media {
+    width: 100px;
+    margin: 10px auto;
+}
+
+.card-media {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 100px;
+}
