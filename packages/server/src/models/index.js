@@ -1,9 +1,25 @@
-const User = require('./users/User')
-const Pokemon = require('./pokemonDB/Pokemon');
-const Berry = require('./pokemonDB/Berry');
+const User = require('./users/User');
+const {
+  Pokemon,
+  Ability,
+  EvolutionChain,
+  GrowthRate,
+  Move,
+  Species,
+  Type,
+  Berry,
+  Item,
+} = require('./pokemonDB/index');
 
 module.exports = {
-    User,
-    Pokemon,
-    Berry,
-}
+  User,
+  Pokemon,
+  Ability,
+  EvolutionChain,
+  GrowthRate,
+  Move,
+  Species,
+  Type,
+  Berry,
+  Item,
+};
