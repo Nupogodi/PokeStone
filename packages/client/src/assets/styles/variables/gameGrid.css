@@ -1,0 +1,53 @@
+:root {
+  /* Game Config */
+
+  /* --game-content-height: 100vh;  */
+  --game-window-height:
+    calc(
+      100vh - var(--navbar-height) - var(--footer-height)
+    );
+  --game-window-width: 100vw;
+
+
+
+  /* Display Grid */
+  --display-panel-height: 400px;
+  --display-panel-column-quantity: 4;
+  --display-panel-column-size: var(--pokemon-card-width);
+  --display-panel-padding: 16px;
+  --display-panel-margin: 16px;
+}
+
+/* Phone Only */
+@media (max-width: 599px) {
+  :root {
+    --display-panel-column-quantity: 1;
+  }
+}
+
+/* Tablet Portrait Mode Up */
+@media (min-width: 600px) {
+  :root {
+    --display-panel-column-quantity: 2;
+  }
+}
+
+/*  Table Landscape Up */
+@media (min-width: 900px) {
+  :root {
+    --display-panel-column-quantity: 3;
+  }
+}
+
+/* Desktop Up */
+@media (min-width: 1200px) {
+  :root {
+    --display-panel-column-quantity: 4;
+  }
+}
+
+/* Big Desktop Up */
+@media (min-width: 1800px) {
+  :root {
+  }
+}

@@ -1,4 +1,4 @@
-const ROUTES = {
+export const ROUTES = {
   main: {
     url: '/',
     title: 'Main Page',
@@ -11,4 +11,32 @@ const ROUTES = {
   about: { url: '/about', title: 'About' },
 };
 
-export default ROUTES;
+export const API_ROUTES = {
+  pokemonDB: {
+    url: '/pokemonDB',
+    items: {},
+    pokemons: {
+      pokemon: {
+        title: 'Pokemon',
+        url: '/pokemon',
+      },
+      move: {
+        title: 'Move',
+        url: '/move',
+      },
+      species: {
+        title: 'Species',
+        url: '/species',
+      },
+      type: {
+        title: 'Type',
+        url: '/type',
+      },
+      ability: {
+        title: 'Ability',
+        url: '/ability',
+      },
+    },
+  },
+  users: {},
+};

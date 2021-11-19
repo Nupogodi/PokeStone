@@ -14,10 +14,11 @@ const requiredNumber = {
 
 const GrowthRateModel = new mongoose.Schema({
   pokeApiID: requiredNumber,
-  formula: requiredString,
   name: requiredString,
-  species: { type: ObjectId, ref: 'Species' },
-  level: [
+  description: requiredString,
+  formula: requiredString,
+  species: [{ type: ObjectId, ref: 'Species' }],
+  levels: [
     {
       experience: requiredNumber,
       level: requiredNumber,

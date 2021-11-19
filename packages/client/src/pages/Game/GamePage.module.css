@@ -1,0 +1,11 @@
+.gameWindow {
+  /* max-width: var(--game-window-width); */
+  margin: 0 auto;
+
+  max-width: var(--container-width);
+  height: var(--game-window-height);
+
+  border: 1px solid black;
+
+  /* margin: var(--display-panel-margin) */
+}

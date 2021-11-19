@@ -5,5 +5,7 @@ const STAGES_CONFIG = {
   end: 'end',
 };
 
+// Selection Stage
+const MAX_SELECTED = 3;
 
-export { STAGES_CONFIG };
+export { STAGES_CONFIG, MAX_SELECTED };

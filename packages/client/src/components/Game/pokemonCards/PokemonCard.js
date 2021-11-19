@@ -1,99 +1,112 @@
-import React, { useState, useEffect } from 'react';
-// material-ui/core components
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 
-// material ui components
-import Card from 'components/material/components/Card/Card.js';
-import CardHeader from 'components/material/components/Card/CardHeader.js';
-import CardBody from 'components/material/components/Card/CardBody.js';
-
-import { backEndApi, pokemonApi } from '../../../utils/api.js';
-import useRequest from 'hooks/useRequest';
+// Constants
+import { CARD_TEXTURES } from 'constants/index';
 
 // styles
-import {
-  cardTitle,
-  cardLink,
-  cardSubtitle,
-} from 'assets/styles/jss/material-kit-react.js';
-import imagesStyles from 'assets/styles/jss/material-kit-react/imagesStyles.js';
-import style from './PokemonCard.module.css';
+import styles from './PokemonCard.module.css';
 
-import axios from 'axios'
+const PokemonCard = function (props) {
+  const { pokemon, className, onClick } = props;
 
-const styles = {
-  ...imagesStyles,
-  cardTitle,
-  cardLink,
-  cardSubtitle,
-};
+  const { height, weight, stats, sprites, name, pokeApiID, types } =
+    pokemon;
 
-const useStyles = makeStyles(styles);
-
-const PokemonCard =  (props) => {
-
-  
-  const {pokemon} = props;
-
-  
-  
-  
-  const {height, weight, stats, sprites, name} = pokemon;
-  console.log('pokemon', pokemon)
-
-  const classes = useStyles();
+  //  Stats deconstruction
+  const { attack, defense, speed, hp } = stats;
 
   return (
-    <Card style={{ width: '10rem' }}>
-      <CardHeader>
-        <img
-          style={{ width: '100%', display: 'block' }}
-          className={classes.imgCardTop}
-          src={sprites.front_default}
-          alt={name}
-        />
-        <h3 className={classes.cardTitle}>{name}</h3>
-      </CardHeader>
-      <CardBody>
-        <div className='stats'>
-          {stats.map((stat) => {
-            return (
-              <div className='stat-wrapper'>
-                <div className='stat-label'>{stat.stat.name}</div>
-                <div className='stat-value'>{stat.stat.base_stat}</div>
+    <div
+      onClick={onClick}
+      className={`${className} ${styles.pokemonCard}`}
+      style={{
+        backgroundImage: `url(${
+          CARD_TEXTURES[types[0].name].texture
+        })`,
+      }}
+    >
+          <div className={styles.pokemonCard_body}>
+            <p className={styles.count}>
+                  #
+          {pokeApiID}
+              </p>
+        <div className={styles.info_cardCover}>
+                  <img
+            src={sprites.dream_world || sprites.front_default}
+              alt={`pokemon ${name}`}
+          />
               </div>
-            );
-          })}
+            <div className={styles.pokemonCard_body__content}>
+            <div className={styles.info}>
+                    <div className={styles.details}>
+                <h3 className={styles.title}>{name}</h3>
+              <p className={styles.label}>
+                            Height:
+                {' '}
+                <span className={styles.marginLeft}>{height}m</span>
+                        </p>
+                <p className={styles.label}>
+                  Weight:
+                {' '}
+                <span className={styles.marginLeft}>
+                        {weight}
+                        kg
+                </span>
+              </p>
+            </div>
+                </div>
+            <ul className={styles.types}>
+            {types.length > 0 &&
+              types.map((type) => {
+                return (
+                  <li
+                        className={styles.type}
+                        key={type._id}
+                    style={{
+                      backgroundColor: CARD_TEXTURES[type.name].color,
+                      color: '#fff',
+                    }}
+                  >
+                        <p>{type.name}</p>
+                    </li>
+                );
+              })}
+          </ul>
         </div>
-      </CardBody>
-    </Card>
-    // <Card sx={{ maxWidth: 345 }}>
-    //   <CardActionArea className={style['card-action']}>
-    //     <CardMedia
-    //       className={style['card-media']}
-    //       component="img"
-    //       height="100px"
-    //       image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
-    //       alt="green iguana"
-    //     />
-    //     <CardContent>
-    //       <Typography className={style['typography']} gutterBottom variant="h5" component="div" sx={{textAlign: 'center'}}>
-    //         Mew Two
-    //       </Typography>
-    //       <Typography variant="body2" color="text.secondary">
-    //         Lizards are a widespread group of squamate reptiles, with over 6,000
-    //         species, ranging across all continents except Antarctica
-    //       </Typography>
-    //     </CardContent>
-    //   </CardActionArea>
-    //   <CardActions>
-    //     <Button size="small" color="primary">
-    //       Share
-    //     </Button>
-    //   </CardActions>
-    // </Card>
+      </div>
+          <div className={styles.pokemonCard_footer}>
+        <div className={styles.stats}>
+          <div
+                className={`${styles.stats__subStats} ${styles.subGrid}`}
+          >
+                <div className={styles.statsWrapper}>
+              <div className={styles.stats__label}>Max CP</div>
+                  <div className={styles.stats__bar}>
+                <div className={styles.statValue} />
+                  {attack.base_stat}
+              </div>
+              </div>
+            <div className={styles.statsWrapper}>
+                  <div className={styles.stats__label}>Attack</div>
+                  <div className={styles.stats__bar}>
+                  {attack.base_stat}
+              </div>
+              </div>
+            <div className={styles.statsWrapper}>
+                  <div className={styles.stats__label}>Defense</div>
+                  <div className={styles.stats__bar}>
+                {defense.base_stat}
+                </div>
+              </div>
+            <div className={styles.statsWrapper}>
+                  <div className={styles.stats__label}>Stamina</div>
+                  <div className={styles.stats__bar}>{hp.base_stat}</div>
+              </div>
+            </div>
+              </div>
+      </div>
+      </div>
   );
 };
 
 export default PokemonCard;
-

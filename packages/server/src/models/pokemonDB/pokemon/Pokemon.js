@@ -21,10 +21,11 @@ const PokemonSchema = new mongoose.Schema({
   possible_moves: [{ type: ObjectId, ref: 'Move' }],
   learnt_moves: [{ type: ObjectId, ref: 'Move' }],
   growth_rate: { type: ObjectId, ref: 'GrowthRate' },
-  evolution_chain: {type: ObjectId, ref: 'EvolutionChain'},
+  evolution_chain: { type: ObjectId, ref: 'EvolutionChain' },
   species: { type: ObjectId, ref: 'Species' },
   sprites: [{ requiredString }],
-  types: [{type: ObjectId, ref: 'Type'}],
+  types: [{ type: ObjectId, ref: 'Type' }],
+  held_items: [{ type: ObjectId, ref: 'Item' }],
 });
 
 const Pokemon = mongoose.model('Pokemon', PokemonSchema);

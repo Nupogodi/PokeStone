@@ -7,6 +7,7 @@ const {
   Move,
   Species,
   Type,
+  Trigger,
   Berry,
   Item,
 } = require('./pokemonDB/index');
@@ -20,6 +21,7 @@ module.exports = {
   Move,
   Species,
   Type,
+  Trigger,
   Berry,
   Item,
 };

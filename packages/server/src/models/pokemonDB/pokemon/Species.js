@@ -22,9 +22,12 @@ const SpeciesModel = new mongoose.Schema({
   name: requiredString,
   capture_rate: requiredNumber,
   evolution_chain: { type: ObjectId, ref: 'EvolutionChain' },
-  growthRate: { type: ObjectId, ref: 'GrowthRate' },
+  evolves_from_species: { type: ObjectId, ref: 'Species' },
+  growth_rate: { type: ObjectId, ref: 'GrowthRate', required: true },
   is_legendary: requiredBool,
   is_mythical: requiredBool,
+  is_baby: { type: Boolean },
+  color: requiredString,
 });
 
 const Species = mongoose.model('Species', SpeciesModel);

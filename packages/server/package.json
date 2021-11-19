@@ -13,6 +13,7 @@
   "description": "Server Package",
   "main": "index.js",
   "devDependencies": {
+    "axios": "^0.21.4",
     "nodemon": "^2.0.12"
   },
   "scripts": {

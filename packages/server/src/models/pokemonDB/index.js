@@ -6,6 +6,7 @@ const Move = require('./pokemon/Move');
 const Pokemon = require('./pokemon/Pokemon');
 const Species = require('./pokemon/Species');
 const Type = require('./pokemon/Type');
+const Trigger = require('./pokemon/Trigger');
 
 // items
 const Berry = require('./items/Berry');
@@ -19,6 +20,7 @@ module.exports = {
   Pokemon,
   Species,
   Type,
+  Trigger,
   Berry,
   Item,
 };

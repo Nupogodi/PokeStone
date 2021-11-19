@@ -1,19 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-
-// components
-import PokemonDeck from './components/Game/PokemonDeck/PokemonDeck';
-import PokemonCard from './components/Game/pokemonCards/PokemonCard';
-// layout
+// Layout
+import Footer from 'components/layout/Footer/Footer';
 import NavBar from './components/layout/NavBar/index';
 
-//constants
-import ROUTES from './constants/routes';
+// Constants
+import { ROUTES } from './constants/routes';
 
-//pages
+// Pages
 import {
   MainPage,
   GamePage,
@@ -22,35 +21,33 @@ import {
   NotFoundPage,
 } from './pages/index';
 
-import './App.css';
+// styles
+import 'assets/styles/main.css';
 
-function App() {
+const App = function () {
   return (
-    <Router>
-      <CssBaseline>
-        <div className='App'>
-          {/* <NavBar /> */}
+      <Router>
+        <div className="App">
+          <NavBar />
           <Switch>
-            {/* <Container maxWidth='sm'> */}
-              <Route exact path={ROUTES.main.url}>
-                <MainPage />
+          <Route exact path={ROUTES.main.url}>
+                  <MainPage />
               </Route>
-              <Route exact path={ROUTES.game.url}>
-                <GamePage />
+          <Route exact path={ROUTES.game.url}>
+                  <GamePage />
+          </Route>
+          <Route exact path={ROUTES.about.url}>
+            <AboutPage />
               </Route>
-              <Route exact path={ROUTES.about.url}>
-                <AboutPage />
-              </Route>
-              <Route exact path={ROUTES.highScores.url}>
-                <ScorePage />
-              </Route>
-              <Route component={NotFoundPage} />
-            {/* </Container> */}
-          </Switch>
-        </div>
-      </CssBaseline>
+          <Route exact path={ROUTES.highScores.url}>
+                  <ScorePage />
+          </Route>
+          <Route component={NotFoundPage} />
+        </Switch>
+          <Footer />
+      </div>
     </Router>
   );
-}
+};
 
 export default App;

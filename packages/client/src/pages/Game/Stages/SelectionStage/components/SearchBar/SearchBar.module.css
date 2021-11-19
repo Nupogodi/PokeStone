@@ -1,4 +1,14 @@
-
 .searchBar {
-  color: #000;
+  padding: 0 1em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid magenta;
+  background-color: salmon;
+}
+
+.flex {
+  flex: 1;
 }

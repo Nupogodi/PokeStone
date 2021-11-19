@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const Filter = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+// Components
+import Input from 'components/Input/Input';
 
-export default Filter
+const Filter = function () {
+  const [searchString, setSearchString] = useState('');
+
+  const handleInputChange = (e) => {
+    setSearchString(e.target.value);
+  };
+
+  return (
+    <Input
+      type="text"
+      name="filterPokemon"
+          id="filterPokemon"
+          inputValue={searchString}
+      onChange={handleInputChange}
+          labelValue="Search"
+      htmlFor="filterPokemon"
+    />
+  );
+};
+
+export default Filter;
