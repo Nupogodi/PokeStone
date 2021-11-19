@@ -1,0 +1,48 @@
+/* general */
+.btn {
+  padding: 5px;
+
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+
+  font: inherit;
+  font-family: inherit;
+  text-transform: uppercase;
+
+  color: inherit;
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+  appearance: none;
+}
+
+/* color */
+.dark {
+  color: #282828;
+}
+
+.light {
+  color: #666;
+}
+
+/* style */
+
+.fillLight {
+  background-color: #666;
+}
+
+.fillDark {
+  background-color: #282828;
+}
+
+.outlineLight {
+  border: 1.5px solid #666;
+}
+
+.outlineDark {
+  border: 1.5px solid #282828;
+}

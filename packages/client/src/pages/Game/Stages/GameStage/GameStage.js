@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const GameStage = () => {
-    return (
-        <div>
-            Game Stage
-        </div>
-    )
-}
+const GameStage = function () {
+  return <div>Game Stage</div>;
+};
 
-export default GameStage
+export default GameStage;

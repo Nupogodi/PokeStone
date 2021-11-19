@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const EndGameStage = () => {
-    return (
-        <div>
-            End Game Stage
-        </div>
-    )
-}
+const EndGameStage = function () {
+  return <div>End Game Stage</div>;
+};
 
-export default EndGameStage
+export default EndGameStage;

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const ScorePage = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const ScorePage = function () {
+  return <div>Score Page</div>;
+};
 
 export default ScorePage;

@@ -1,0 +1,25 @@
+.heroContent {
+  min-height: 70vh;
+
+  background: url("assets/img/pokemon-hero-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+}
+
+.textContent {
+  padding: 10px;
+
+  background-color: var(--color-red);
+}
+
+.whiteText {
+  color: #fff;
+}

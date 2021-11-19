@@ -1,48 +1,77 @@
 import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink } from 'react-router-dom';
 
-import Navigation from '../Navigation/index';
-import Drawer from '@mui/material/Drawer';
+// constants
+import { ROUTES } from 'constants/routes';
 
+const { SubMenu } = Menu;
+const NavBar = function () {
+  const NAV_BAR_MENU_KEYS = {
+    home: {
+      key: 'home',
+      title: 'Home',
+    },
 
-function NavBar() {
-  const [openDrawer, setOpenDrawer] = useState(false);
+    game: {
+      key: 'game',
+      title: 'Game',
+    },
 
-  const toggleDrawer = () => {
+    account: {
+      key: 'account',
+      title: 'Account',
+    },
 
-    setOpenDrawer(!openDrawer);
+    highScore: {
+      key: 'highScore',
+      title: 'High Score',
+    },
+
+    about: {
+      key: 'about',
+      title: 'About',
+    },
   };
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
-        <Toolbar>
-          <Drawer anchor="left" open={openDrawer} onClose={toggleDrawer}>
-            <Navigation toggleDrawer={toggleDrawer} />
-          </Drawer>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon onClick={toggleDrawer} />
-          </IconButton>
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            PokeStone
-          </Typography>
-          <Button color='inherit'>Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
-}
+  const [currentMenu, setCurrentMenu] = useState('mail');
+
+  const handleClick = (e) => {
+    setCurrentMenu(e.key);
+  };
+
+  return null;
+  // <div
+  //   onClick={(e) => handleClick(e)}
+  //   selectedKeys={[currentMenu]}
+  //   mode='horizontal'
+  //   style={{ height: 'var(--navbar-height)' }}
+  // >
+  //   <Menu.Item key={NAV_BAR_MENU_KEYS.home.key} icon={<HomeOutlined />}>
+  //     <NavLink to={ROUTES.main.url}>{NAV_BAR_MENU_KEYS.home.title}</NavLink>
+  //   </Menu.Item>
+  //   <Menu.Item key={NAV_BAR_MENU_KEYS.game.key} icon={<AppstoreOutlined />}>
+  //     <NavLink to={ROUTES.game.url}>{NAV_BAR_MENU_KEYS.game.title}</NavLink>
+  //   </Menu.Item>
+  //   <SubMenu key='SubMenu' icon={<SettingOutlined />} title='More'>
+  //     <Menu.ItemGroup>
+  //       <Menu.Item
+  //         key={NAV_BAR_MENU_KEYS.account.key}
+  //         icon={<UserOutlined />}
+  //       >
+  //         {NAV_BAR_MENU_KEYS.account.title}
+  //       </Menu.Item>
+  //       <Menu.Item
+  //         key={NAV_BAR_MENU_KEYS.highScore.key}
+  //         icon={<FieldNumberOutlined />}
+  //       >
+  //         {NAV_BAR_MENU_KEYS.highScore.title}
+  //       </Menu.Item>
+  //     </Menu.ItemGroup>
+  //   </SubMenu>
+  //   <Menu.Item key={NAV_BAR_MENU_KEYS.about.key} icon={<LinkOutlined />}>
+  //     {NAV_BAR_MENU_KEYS.about.title}
+  //   </Menu.Item>
+  // </div>
+};
 
 export default NavBar;

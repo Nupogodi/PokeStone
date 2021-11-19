@@ -1,0 +1,33 @@
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr minmax(100px, auto);
+  min-height: 100%;
+  max-height: var(--game-window-height);
+}
+
+.header {
+  grid-column: 1 / end;
+}
+
+.main {
+  grid-column: 1 / 5;
+  grid-row: 2 / 4;
+}
+
+.sideBar {
+  grid-column: 5;
+  grid-row: 2 / 4;
+}
+
+@media (max-width: 600px) {
+  .main {
+    grid-column: 1 / end;
+    grid-row: 2 / 3;
+  }
+
+  .sideBar {
+    grid-column: 1 / end;
+    grid-row: 3;
+  }
+}

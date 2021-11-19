@@ -1,0 +1,15 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  background-color: grey;
+}
+
+/* Slots */
+.slot {
+  flex: 1;
+
+  border: 1px solid black;
+  background-color: rebeccapurple;
+}

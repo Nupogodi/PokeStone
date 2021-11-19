@@ -1,4 +1,4 @@
-const experienceScale = {
+export const EXPERIENCE_CHART = {
   lvl_1: 0,
   lvl_2: 25,
   lvl_3: 50,
@@ -100,5 +100,3 @@ const experienceScale = {
   lvl_99: 590000,
   lvl_100: 600000,
 };
-
-export default experienceScale;

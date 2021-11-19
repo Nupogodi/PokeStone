@@ -1,0 +1,21 @@
+@import './pokemonCard.css';
+@import './gameGrid.css';
+@import './layout.css';
+
+:root {
+  /* Colors */
+  --color-red: #f00;
+  --color-dark-red: #c00;
+  --color-blue: #3b3caa;
+  --color-yellow: #ffde00;
+  --color-dark-yellow: #b3a125;
+  --color-white: #fff;
+  --color-light-gray: #6f6f6f;
+  --color-dark-gray: #282828;
+  --color-black: #000;
+
+  /* Transparency */
+  --color-transparent-gray-light: rgb(0 0 0 / 30%);
+  --color-transparent-gray-medium: rgb(0 0 0 / 50%);
+  --color-transparent-gray-heavy: rgb(0 0 0 / 70%);
+}

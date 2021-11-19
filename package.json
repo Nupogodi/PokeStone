@@ -8,7 +8,8 @@
   "scripts": {
     "client": "npm -w client start",
     "server": "npm -w server run develop",
-    "start": "concurrently --kill-others-on-fail \"npm run server\"  \"npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\"  \"npm run client\"",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "url": "https://github.com/Nupogodi/PokeStone/issues"
   },
   "homepage": "https://github.com/Nupogodi/PokeStone#readme",
-  "dependencies": {
-    "concurrently": "^6.2.2"
+  "devDependencies": {
+    "concurrently": "^6.2.2",
+    "husky": "^7.0.0"
   }
 }

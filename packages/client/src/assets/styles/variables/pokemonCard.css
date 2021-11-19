@@ -1,0 +1,19 @@
+:root {
+  /* Pokemon Card */
+  --pokemon-card-height: 300px;
+  --pokemon-card-width: 210px;
+  --pokemon-card-cover-width: 100px;
+  --pokemon-card-title-font-size: 24px;
+  --pokemon-card-stat-font-size: 12px;
+
+  /* Animation and Hover Effects */
+  --duration-fast: 0.1s;
+  --duration-medium: 0.3s;
+  --duration-slow: 1.3s;
+
+  /* Card z-index */
+  --pokemon-card-upper-layer: 3;
+  --pokemon-card-lower-layer: 1;
+  --stat-padding: 3px;
+  --stat-margin: 3px;
+}
