@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  useRef,
-} from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 
 // Context
 import CurrentGameContext from 'context/currentGame/context';
@@ -28,6 +23,7 @@ const DisplayPanel = function (props) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
+    // eslint-disable-next-line consistent-return
     const scroll = (e) => {
       const element = e.target;
       if (element.scrollHeight - element.scrollTop <= 900) {
@@ -38,6 +34,7 @@ const DisplayPanel = function (props) {
     if (wrapperRef.current) {
       wrapperRef.current.addEventListener('scroll', scroll);
     }
+
     return () => {
       if (wrapperRef.current) {
         wrapperRef.current.removeEventListener('scroll', scroll);
@@ -60,20 +57,17 @@ const DisplayPanel = function (props) {
   const { pokemonList } = currentGameContext;
 
   return (
-    <div
-      ref={wrapperRef}
-      className={`${styles.displayPanel} ${className}`}
-    >
+    <div ref={wrapperRef} className={`${styles.displayPanel} ${className}`}>
       {pokemonList.map((pokemon) => {
         return (
           <PokemonCard
             onClick={() => currentGameContext.selectPokemon(pokemon)}
-                pokemon={pokemon}
+            pokemon={pokemon}
             key={pokemon._id}
           />
         );
       })}
-      </div>
+    </div>
   );
 };
 

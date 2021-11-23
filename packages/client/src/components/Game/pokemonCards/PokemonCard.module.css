@@ -87,10 +87,8 @@
   max-width: var(--pokemon-card-cover-width);
   max-height: var(--pokemon-card-cover-width);
 
-  transition:
-    transform var(--duration-slow) ease,
-    left var(--duration-slow) ease,
-    top var(--duration-slow) ease;
+  transition: transform var(--duration-slow) ease,
+    left var(--duration-slow) ease, top var(--duration-slow) ease;
   transform: scale(0.7);
   transform: translateX(-50%);
 }

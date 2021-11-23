@@ -23,9 +23,7 @@ const STAGES_COMPONENTS_CONFIG = {
 };
 
 const GamePage = function () {
-  const [currentGameStage, setCurrentGameStage] = useState(
-    STAGES_CONFIG.init,
-  );
+  const [currentGameStage, setCurrentGameStage] = useState(STAGES_CONFIG.init);
 
   const CurrentStageComponent = useMemo(() => {
     return STAGES_COMPONENTS_CONFIG[currentGameStage];
@@ -34,18 +32,18 @@ const GamePage = function () {
   return (
     <CurrentGameState>
       <div className={styles.gameWindow}>
-            <CurrentStageComponent />
+        <CurrentStageComponent />
         <button
-              type="button"
+          type="button"
           style={{ position: 'absolute', top: 0, right: 0 }}
           onClick={() => {
             setCurrentGameStage(STAGES_CONFIG.selection);
           }}
         >
-              Next game stage
+          Next game stage
         </button>
-        </div>
-      </CurrentGameState>
+      </div>
+    </CurrentGameState>
   );
 };
 

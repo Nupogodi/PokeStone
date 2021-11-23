@@ -10,9 +10,9 @@ const SearchBar = function (props) {
   const { className } = props;
   return (
     <div className={`${styles.searchBar} ${className}`}>
-          <h2 className={styles.title}>Poke Library</h2>
+      <h2 className={styles.title}>Poke Library</h2>
       <Filter />
-      </div>
+    </div>
   );
 };
 

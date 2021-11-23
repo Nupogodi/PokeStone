@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export const EXPERIENCE_CHART = {
   lvl_1: 0,
   lvl_2: 25,

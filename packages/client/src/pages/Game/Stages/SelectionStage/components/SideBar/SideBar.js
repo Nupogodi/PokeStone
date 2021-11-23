@@ -23,6 +23,9 @@ const SideBar = function ({ className }) {
   const currentGameContext = useContext(CurrentGameContext);
   const [slots, setSlots] = useState({});
 
+  //  Refactor:
+  // Create global context array with nulls equal to MAX_SELECTED
+  // Reassign array[desired index] from null to pokemon
   useEffect(() => {
     const createSlots = (maxQuantity) => {
       const emptySlots = {};
@@ -54,21 +57,19 @@ const SideBar = function ({ className }) {
     };
 
     if (currentGameContext.selectedPokemons.length > 0) {
-      currentGameContext.selectedPokemons.map(
-        (selectedPokemon, index) => {
-          return setSlots({
-            ...slots,
-            [index]: {
-              pokemon: selectedPokemon,
-              empty: false,
-              action: () => {
-                currentGameContext.deselectPokemon(selectedPokemon);
-                emptySlot(index);
-              },
+      currentGameContext.selectedPokemons.map((selectedPokemon, index) => {
+        return setSlots({
+          ...slots,
+          [index]: {
+            pokemon: selectedPokemon,
+            empty: false,
+            action: () => {
+              currentGameContext.deselectPokemon(selectedPokemon);
+              emptySlot(index);
             },
-          });
-        },
-      );
+          },
+        });
+      });
     }
   }, [currentGameContext.selectedPokemons]);
 
@@ -78,7 +79,7 @@ const SideBar = function ({ className }) {
       {Object.entries(slots).map(([key, value]) => {
         return <PokemonSlot key={key} slot={value} />;
       })}
-      </div>
+    </div>
   );
 };
 

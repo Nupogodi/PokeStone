@@ -14,10 +14,10 @@ const Filter = function () {
     <Input
       type="text"
       name="filterPokemon"
-          id="filterPokemon"
-          inputValue={searchString}
+      id="filterPokemon"
+      inputValue={searchString}
       onChange={handleInputChange}
-          labelValue="Search"
+      labelValue="Search"
       htmlFor="filterPokemon"
     />
   );

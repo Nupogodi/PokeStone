@@ -4,11 +4,7 @@ import React from 'react';
 import styles from './Footer.module.css';
 
 const Footer = function () {
-  return (
-      <footer className={styles.footer}>
-        Made with ❤ by Alex Sherbin
-    </footer>
-  );
+  return <footer className={styles.footer}>Made with ❤ by Alex Sherbin</footer>;
 };
 
 export default Footer;

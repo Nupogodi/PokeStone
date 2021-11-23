@@ -4,11 +4,10 @@
   display: grid;
   overflow: auto;
   justify-content: center;
-  grid-template-columns:
-    repeat(
-      var(--display-panel-column-quantity),
-      var(--display-panel-column-size)
-    );
+  grid-template-columns: repeat(
+    var(--display-panel-column-quantity),
+    var(--display-panel-column-size)
+  );
   height: 100%;
   grid-gap: 1em;
   grid-auto-rows: var(--pokemon-card-height);
