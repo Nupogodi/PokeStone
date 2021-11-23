@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Layout
 import Footer from 'components/layout/Footer/Footer';
@@ -26,25 +22,25 @@ import 'assets/styles/main.css';
 
 const App = function () {
   return (
-      <Router>
-        <div className="App">
-          <NavBar />
-          <Switch>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <Switch>
           <Route exact path={ROUTES.main.url}>
-                  <MainPage />
-              </Route>
+            <MainPage />
+          </Route>
           <Route exact path={ROUTES.game.url}>
-                  <GamePage />
+            <GamePage />
           </Route>
           <Route exact path={ROUTES.about.url}>
             <AboutPage />
-              </Route>
+          </Route>
           <Route exact path={ROUTES.highScores.url}>
-                  <ScorePage />
+            <ScorePage />
           </Route>
           <Route component={NotFoundPage} />
         </Switch>
-          <Footer />
+        <Footer />
       </div>
     </Router>
   );

@@ -4,11 +4,7 @@ import React from 'react';
 import styles from './Container.module.css';
 
 const Container = function ({ children, className = '' }) {
-  return (
-      <div className={`${className} ${styles.container}`}>
-        {children}
-    </div>
-  );
+  return <div className={`${className} ${styles.container}`}>{children}</div>;
 };
 
 export default Container;

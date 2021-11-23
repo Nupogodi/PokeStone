@@ -18,14 +18,8 @@ module.exports = {
     'font-family-name-quotes': 'always-unless-keyword',
     'declaration-block-single-line-max-declarations': 5,
     'no-descending-specificity': null,
-    'at-rule-no-unknown': [
-      true,
-      { ignoreAtRules: ['define-mixin', 'mixin'] },
-    ],
-    'value-keyword-case': [
-      'lower',
-      { ignoreProperties: ['composes'] },
-    ],
+    'at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'mixin'] }],
+    'value-keyword-case': ['lower', { ignoreProperties: ['composes'] }],
     'order/properties-order': [
       {
         emptyLineBefore: 'always',

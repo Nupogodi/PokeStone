@@ -30,10 +30,7 @@ const CurrentGameState = function ({ children }) {
     pending: false,
   };
 
-  const [state, dispatch] = useReducer(
-    CurrentGameReducer,
-    initialState,
-  );
+  const [state, dispatch] = useReducer(CurrentGameReducer, initialState);
 
   // Methods
 
@@ -69,9 +66,7 @@ const CurrentGameState = function ({ children }) {
 
   const selectPokemon = (pokemon) => {
     if (
-      state.selectedPokemons.find(
-        (obj) => obj.name === pokemon.name,
-      ) ||
+      state.selectedPokemons.find((obj) => obj.name === pokemon.name) ||
       state.selectedPokemons.length >= MAX_SELECTED
     ) {
       return;
@@ -90,6 +85,7 @@ const CurrentGameState = function ({ children }) {
   };
   return (
     <CurrentGameContext.Provider
+      // eslint-disable-next-line
       value={{
         users: state.users,
         user: state.user,
@@ -102,7 +98,7 @@ const CurrentGameState = function ({ children }) {
       }}
     >
       {children}
-      </CurrentGameContext.Provider>
+    </CurrentGameContext.Provider>
   );
 };
 

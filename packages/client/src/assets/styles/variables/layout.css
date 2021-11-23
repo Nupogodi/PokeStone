@@ -1,5 +1,11 @@
 :root {
+  /* Navbar */
   --navbar-height: 3rem;
+  --navbar-container-width: 200px;
+
+  /* Footer */
   --footer-height: 3rem;
+
+  /* Container */
   --container-width: 1250px;
 }

@@ -15,10 +15,11 @@ const Button = function ({
     <button
       onClick={action}
       className={`${className} ${styles.btn} ${styles[btnStyle]} ${styles[btnColor]}`}
-          type={btnType || 'button'}
+      // eslint-disable-next-line
+      type={btnType || 'button'}
     >
       {value}
-      </button>
+    </button>
   );
 };
 

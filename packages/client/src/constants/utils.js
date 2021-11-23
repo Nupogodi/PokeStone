@@ -1,13 +1,28 @@
+import {
+  AiFillHome,
+  AiFillPlayCircle,
+  AiOutlineQuestionCircle,
+} from 'react-icons/ai';
+import { FaEllipsisV } from 'react-icons/fa';
+import { MdOutlineFormatListNumberedRtl } from 'react-icons/md';
+import { ReactComponent as ReactLogo } from 'assets/img/poke-ball/poke-ball.svg';
+
 export const ICONS = {
-  edit: EditOutlined,
-  ellipsis: EllipsisOutlined,
-  setting: SettingOutlined,
+  home: AiFillHome,
+  ellipsis: FaEllipsisV,
+  game: ReactLogo,
+  highScore: MdOutlineFormatListNumberedRtl,
+  about: AiOutlineQuestionCircle,
 };
 
 export const ICON_TYPES = {
   edit: 'edit',
+  home: 'home',
+  game: 'game',
   ellipsis: 'ellipsis',
   setting: 'setting',
+  highScore: 'highScore',
+  about: 'about',
 };
 
 export const BTN_TYPES = {

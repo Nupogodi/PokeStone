@@ -10,15 +10,15 @@ const SelectionStage = function () {
   return (
     <div className={styles.contentGrid}>
       <div className={styles.header}>
-            <SearchBar />
-        </div>
+        <SearchBar />
+      </div>
       <div className={styles.main}>
         <DisplayPanel />
-        </div>
+      </div>
       <div className={styles.sideBar}>
         <SideBar />
-        </div>
       </div>
+    </div>
   );
 };
 

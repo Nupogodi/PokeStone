@@ -1,7 +1,7 @@
 .heroContent {
   min-height: 70vh;
 
-  background: url("assets/img/pokemon-hero-2.jpg");
+  background: url('assets/img/pokemon-hero-2.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

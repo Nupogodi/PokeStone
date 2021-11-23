@@ -1,77 +1,70 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-// constants
-import { ROUTES } from 'constants/routes';
+// Constants
+import { NAVBAR_MENU } from 'constants/index';
+import Container from 'components/wrappers/Container/Container';
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
-const { SubMenu } = Menu;
+// Components
+import Icon from 'components/Icon/Icon';
+
+// Styles
+import styles from './NavBar.module.css';
+
 const NavBar = function () {
-  const NAV_BAR_MENU_KEYS = {
-    home: {
-      key: 'home',
-      title: 'Home',
-    },
+  const [expandMenu, setExpandMenu] = useState(false);
 
-    game: {
-      key: 'game',
-      title: 'Game',
-    },
-
-    account: {
-      key: 'account',
-      title: 'Account',
-    },
-
-    highScore: {
-      key: 'highScore',
-      title: 'High Score',
-    },
-
-    about: {
-      key: 'about',
-      title: 'About',
-    },
+  const toggleMenu = () => {
+    setExpandMenu(!expandMenu);
   };
 
-  const [currentMenu, setCurrentMenu] = useState('mail');
-
-  const handleClick = (e) => {
-    setCurrentMenu(e.key);
-  };
-
-  return null;
-  // <div
-  //   onClick={(e) => handleClick(e)}
-  //   selectedKeys={[currentMenu]}
-  //   mode='horizontal'
-  //   style={{ height: 'var(--navbar-height)' }}
-  // >
-  //   <Menu.Item key={NAV_BAR_MENU_KEYS.home.key} icon={<HomeOutlined />}>
-  //     <NavLink to={ROUTES.main.url}>{NAV_BAR_MENU_KEYS.home.title}</NavLink>
-  //   </Menu.Item>
-  //   <Menu.Item key={NAV_BAR_MENU_KEYS.game.key} icon={<AppstoreOutlined />}>
-  //     <NavLink to={ROUTES.game.url}>{NAV_BAR_MENU_KEYS.game.title}</NavLink>
-  //   </Menu.Item>
-  //   <SubMenu key='SubMenu' icon={<SettingOutlined />} title='More'>
-  //     <Menu.ItemGroup>
-  //       <Menu.Item
-  //         key={NAV_BAR_MENU_KEYS.account.key}
-  //         icon={<UserOutlined />}
-  //       >
-  //         {NAV_BAR_MENU_KEYS.account.title}
-  //       </Menu.Item>
-  //       <Menu.Item
-  //         key={NAV_BAR_MENU_KEYS.highScore.key}
-  //         icon={<FieldNumberOutlined />}
-  //       >
-  //         {NAV_BAR_MENU_KEYS.highScore.title}
-  //       </Menu.Item>
-  //     </Menu.ItemGroup>
-  //   </SubMenu>
-  //   <Menu.Item key={NAV_BAR_MENU_KEYS.about.key} icon={<LinkOutlined />}>
-  //     {NAV_BAR_MENU_KEYS.about.title}
-  //   </Menu.Item>
-  // </div>
+  return (
+    <nav className={styles.navBar}>
+      <Container className={`${styles.flexWrapper}`}>
+        <NavLink to={NAVBAR_MENU.menu.main.url}>
+          <h1 className={styles.navTitle}>Poke Stone</h1>
+        </NavLink>
+        <ul className={styles.mainMenu}>
+          {Object.entries(NAVBAR_MENU.menu).map(([key, value]) => {
+            return (
+              <NavLink key={key} to={value.url}>
+                <li className={styles.navItem}>
+                  <Icon iconType={value.icon} />
+                  <p className={styles.navItem__label}>{value.title}</p>
+                </li>
+              </NavLink>
+            );
+          })}
+          <ButtonWrapper onClick={toggleMenu}>
+            <li
+              className={` ${styles.navItem} ${styles.relative} ${
+                expandMenu && styles.selected
+              }`}
+            >
+              <Icon iconType={NAVBAR_MENU.subMenu.head.icon} />
+              <ul
+                className={`${expandMenu && styles.active} ${styles.subMenu}`}
+              >
+                {Object.entries(NAVBAR_MENU.subMenu.content).map(
+                  ([key, value]) => {
+                    return (
+                      <NavLink key={key} to={value.url}>
+                        <li className={styles.navItem}>
+                          <Icon iconType={value.icon} />
+                          <p className={styles.navItem__label}>{value.title}</p>
+                        </li>
+                      </NavLink>
+                    );
+                  },
+                )}
+              </ul>
+            </li>
+          </ButtonWrapper>
+        </ul>
+      </Container>
+    </nav>
+  );
 };
 
 export default NavBar;

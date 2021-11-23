@@ -17,22 +17,22 @@ const Input = function ({
   step,
 }) {
   return (
-      <div className={styles.formGroup}>
-        <input
-              className={`${styles.input} ${inputClassName} ${
+    <div className={styles.formGroup}>
+      <input
+        className={`${styles.input} ${inputClassName} ${
           !!inputValue && styles.hasValue
         }`}
-              type={type}
-              value={inputValue}
-              name={name}
-              id={id}
-              onChange={onChange}
+        type={type}
+        value={inputValue}
+        name={name}
+        id={id}
+        onChange={onChange}
         min={min}
-              max={max}
+        max={max}
         step={step}
       />
-        <label className={styles.label} htmlFor={htmlFor}>
-          {labelValue}
+      <label className={styles.label} htmlFor={htmlFor}>
+        {labelValue}
       </label>
     </div>
   );

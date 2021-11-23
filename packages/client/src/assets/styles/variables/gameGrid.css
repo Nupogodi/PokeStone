@@ -2,13 +2,10 @@
   /* Game Config */
 
   /* --game-content-height: 100vh;  */
-  --game-window-height:
-    calc(
-      100vh - var(--navbar-height) - var(--footer-height)
-    );
+  --game-window-height: calc(
+    100vh - var(--navbar-height) - var(--footer-height)
+  );
   --game-window-width: 100vw;
-
-
 
   /* Display Grid */
   --display-panel-height: 400px;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const NotFoundPage = function () {
+// eslint-disable-next-line
+const NotFoundPage = () => {
   return <div>Not Found</div>;
 };
 
