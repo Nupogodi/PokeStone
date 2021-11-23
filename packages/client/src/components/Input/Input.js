@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import styles from './Input.module.css';
 
-const Input = function ({
+const Input = function Input({
   type,
   name,
   id,

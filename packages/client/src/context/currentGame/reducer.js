@@ -1,7 +1,5 @@
 // Types
 import {
-  GET_POKEMONS,
-  GET_POKEMON,
   SET_POKEMONS,
   ADD_POKEMONS,
   SELECT_POKEMON,

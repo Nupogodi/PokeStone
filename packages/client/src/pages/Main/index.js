@@ -7,16 +7,12 @@ import { BTN_TYPES, BTN_STYLES, BTN_COLOR } from 'constants/utils';
 import { ROUTES } from 'constants/routes';
 
 // components
-import Container from 'components/wrappers/Container/Container';
 import Button from 'components/Button/Button';
-
-// typography
-import { Title, Text } from 'components/Typography/Typography';
 
 // styles
 import styles from './index.module.css';
 
-const MainPage = function () {
+const MainPage = function MainPage() {
   return (
     <div className={styles.mainPage}>
       <div className={`${styles.heroContent} ${styles.grid}`}>

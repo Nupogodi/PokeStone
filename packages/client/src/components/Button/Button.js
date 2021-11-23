@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import styles from './Button.module.css';
 
-const Button = function ({
+const Button = function Button({
   btnType,
   btnStyle,
   value,

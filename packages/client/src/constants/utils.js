@@ -1,8 +1,4 @@
-import {
-  AiFillHome,
-  AiFillPlayCircle,
-  AiOutlineQuestionCircle,
-} from 'react-icons/ai';
+import { AiFillHome, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaEllipsisV } from 'react-icons/fa';
 import { MdOutlineFormatListNumberedRtl } from 'react-icons/md';
 import { ReactComponent as ReactLogo } from 'assets/img/poke-ball/poke-ball.svg';

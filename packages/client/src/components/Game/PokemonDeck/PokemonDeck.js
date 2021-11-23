@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const PokemonDeck = function () {
-  const [chosenPokemons, setChosenPokemons] = useState([]);
+import styles from './PokemonDeck.module.css';
 
-  return <div>Pokemon Deck</div>;
+const PokemonDeck = function PokemonDeck() {
+  return <div className={styles.pokemonDeck}>Pokemon Deck</div>;
 };
 
 export default PokemonDeck;

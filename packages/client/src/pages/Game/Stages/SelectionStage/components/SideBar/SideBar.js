@@ -9,7 +9,7 @@ import { MAX_SELECTED } from 'constants/index';
 // Styles
 import styles from './SideBar.module.css';
 
-const PokemonSlot = function ({ slot }) {
+const PokemonSlot = function PokemonSlot({ slot }) {
   if (slot.empty) {
     return <div className={styles.slot}>Pokemon</div>;
   }
@@ -19,7 +19,7 @@ const PokemonSlot = function ({ slot }) {
   return <div className={styles.slot}>{pokemon.name}</div>;
 };
 
-const SideBar = function ({ className }) {
+const SideBar = function SideBar({ className }) {
   const currentGameContext = useContext(CurrentGameContext);
   const [slots, setSlots] = useState({});
 
@@ -71,6 +71,7 @@ const SideBar = function ({ className }) {
         });
       });
     }
+    // eslint-disable-next-line
   }, [currentGameContext.selectedPokemons]);
 
   return (

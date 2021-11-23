@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const InitStage = function () {
+const InitStage = function InitStage() {
   return (
     <>
       <img

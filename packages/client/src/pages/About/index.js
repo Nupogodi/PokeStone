@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutPage = function () {
+const AboutPage = function AboutPage() {
   return <div>About Page</div>;
 };
 

@@ -1,10 +1,13 @@
 .navBar {
-  border: 1px solid rebeccapurple;
   height: var(--navbar-height);
+
+  border: 1px solid rebeccapurple;
 }
 
 .navTitle {
   margin-right: 1em;
+
+  height: 100%;
 }
 
 .mainMenu {
@@ -17,23 +20,21 @@
 }
 
 .navItem {
-  display: flex;
   /* border: 1px solid salmon; */
   margin: 0 0.5em;
+
+  display: flex;
   min-width: 10px;
 }
 
 /*  Hover Effect */
-.navItem:hover {
-}
-
-.navItem:hover .navItem__label {
-}
 
 .subMenu .navItem {
-  border-bottom: 1px solid black;
-  min-width: 200px;
   padding: 0.5em;
+
+  min-width: 200px;
+
+  border-bottom: 1px solid black;
 }
 
 .navItem__label {
@@ -41,19 +42,24 @@
 }
 
 .subMenu {
-  top: var(--navbar-height);
   position: fixed;
+  top: var(--navbar-height);
+
   flex-direction: column;
+
   background-color: #fff;
+
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateY(-200px);
 }
 
 /* active class for subMenu */
 .active {
-  transform: translateY(0);
   z-index: 1;
+
   opacity: 1;
+
+  transform: translateY(0);
 }
 
 /* active class for ellipsis icon */
@@ -64,12 +70,5 @@
 .flexWrapper {
   display: flex;
   align-items: center;
-  height: 100%;
-}
-
-.relative {
-}
-
-.navTitle {
   height: 100%;
 }

@@ -10,9 +10,6 @@ import CurrentGameReducer from './reducer';
 
 // Types
 import {
-  GET_POKEMONS,
-  GET_POKEMON,
-  SET_POKEMONS,
   ADD_POKEMONS,
   SELECT_POKEMON,
   DESELECT_POKEMON,
@@ -21,7 +18,7 @@ import {
 
 // Constants
 
-const CurrentGameState = function ({ children }) {
+const CurrentGameState = function CurrentGameState({ children }) {
   const initialState = {
     users: [],
     user: {},
