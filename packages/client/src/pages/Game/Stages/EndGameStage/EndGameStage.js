@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EndGameStage = function () {
+const EndGameStage = function EndGameStage() {
   return <div>End Game Stage</div>;
 };
 

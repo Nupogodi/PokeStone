@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameStage = function () {
+const GameStage = function GameStage() {
   return <div>Game Stage</div>;
 };
 

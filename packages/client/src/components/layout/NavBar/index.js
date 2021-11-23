@@ -12,7 +12,7 @@ import Icon from 'components/Icon/Icon';
 // Styles
 import styles from './NavBar.module.css';
 
-const NavBar = function () {
+const NavBar = function NavBar() {
   const [expandMenu, setExpandMenu] = useState(false);
 
   const toggleMenu = () => {

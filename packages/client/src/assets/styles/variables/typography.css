@@ -12,5 +12,4 @@
   --size-s-3: calc(var(--size-s-2) / var(--scale));
 }
 
-
 /*  Naming Pattern: --size-{large/small}-{multiplier} */

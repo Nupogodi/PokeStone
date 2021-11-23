@@ -6,7 +6,7 @@ import { ICONS } from 'constants/index';
 // Styles
 import styles from './Icon.module.css';
 
-const Icon = function ({
+const Icon = function Icon({
   iconType,
   className,
   text = '',

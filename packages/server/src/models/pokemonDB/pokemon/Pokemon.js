@@ -23,7 +23,10 @@ const PokemonSchema = new mongoose.Schema({
   growth_rate: { type: ObjectId, ref: 'GrowthRate' },
   evolution_chain: { type: ObjectId, ref: 'EvolutionChain' },
   species: { type: ObjectId, ref: 'Species' },
-  sprites: [{ requiredString }],
+  sprites: {
+    front_default: { type: String },
+    dream_world: { type: String },
+  },
   types: [{ type: ObjectId, ref: 'Type' }],
   held_items: [{ type: ObjectId, ref: 'Item' }],
 });

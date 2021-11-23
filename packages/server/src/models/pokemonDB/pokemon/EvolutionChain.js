@@ -34,10 +34,8 @@ const EvolutionChainModel = new mongoose.Schema({
   ],
   evolves_to: [
     {
-      evolution_details: [],
-      is_baby: { type: Boolean },
-      species: { type: ObjectId, ref: 'Species' },
-      evolves_to: [],
+      type: ObjectId,
+      ref: 'EvolutionChain',
     },
   ],
   is_baby: { type: Boolean },

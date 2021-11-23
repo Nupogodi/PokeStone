@@ -22,7 +22,7 @@ const STAGES_COMPONENTS_CONFIG = {
   [STAGES_CONFIG.end]: EndGameStage,
 };
 
-const GamePage = function () {
+const GamePage = function GamePage() {
   const [currentGameStage, setCurrentGameStage] = useState(STAGES_CONFIG.init);
 
   const CurrentStageComponent = useMemo(() => {
