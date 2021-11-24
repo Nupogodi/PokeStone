@@ -1,25 +1,45 @@
 :root {
-  /* Game Config */
-
-  /* --game-content-height: 100vh;  */
-  --game-window-height:
-    calc(
-      100vh - var(--navbar-height) - var(--footer-height)
-    );
+  /* Game Window Layout */
+  --game-window-height: calc(
+    100vh - var(--navbar-height) - var(--footer-height)
+  );
   --game-window-width: 100vw;
 
+  /* Selection Stage Page Layout */
+
+  /* General Layout*/
+  --content-template-columns: 1fr auto;
+  --content-template-rows: var(--search-bar-height) var(--display-panel-height);
+
   /* Display Grid */
-  --display-panel-height: 400px;
+  --display-panel-height: calc(
+    var(--game-window-height) - var(--search-bar-height)
+  );
   --display-panel-column-quantity: 4;
-  --display-panel-column-size: var(--pokemon-card-width);
+  --display-panel-column-size: 1fr;
   --display-panel-padding: 16px;
   --display-panel-margin: 16px;
+
+  /* Display SearchBar */
+  --search-bar-height: 5rem;
+  --search-bar-grid-column: 1 / end;
+
+  /* SideBar with selected pokemons */
+  --sidebar-folded-height: 150px;
+  --sidebar-max-selected: 3;
+  --sidebar-banner-width: 100;
+  --sidebar-banner-height: 100;
+  /* End of Selection Stage Page Layout */
 }
 
 /* Phone Only */
 @media (max-width: 599px) {
   :root {
     --display-panel-column-quantity: 1;
+    --display-panel-height: calc(
+      var(--game-window-height) - var(--search-bar-height) -
+        var(--sidebar-folded-height)
+    );
   }
 }
 

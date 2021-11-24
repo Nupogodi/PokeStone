@@ -4,19 +4,60 @@ import React, { useContext, useEffect, useState } from 'react';
 import CurrentGameContext from 'context/currentGame/context';
 
 // Constants
-import { MAX_SELECTED } from 'constants/index';
+import { MAX_SELECTED, ICON_TYPES } from 'constants/index';
 
+// Components
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import Icon from 'components/Icon/Icon';
+import NameScroll from 'components/Game/NameScroll/NameScroll';
 // Styles
 import styles from './SideBar.module.css';
 
-const PokemonSlot = function PokemonSlot({ slot }) {
-  if (slot.empty) {
-    return <div className={styles.slot}>Pokemon</div>;
+const PokemonSlot = function PokemonSlot({ slot = null }) {
+  if (slot === null || slot.empty) {
+    return (
+      <div className={styles.slot}>
+        <div className={styles.slot__imgWrapper}>Empty</div>
+        <NameScroll
+          className={styles.nameScroll}
+          name={null}
+          viewBoxHeight="400"
+          viewBoxWidth="600"
+        />
+        <div className={styles.slot__stats}>Content</div>
+      </div>
+    );
   }
 
-  const { pokemon } = slot;
+  const { pokemon, action } = slot;
 
-  return <div className={styles.slot}>{pokemon.name}</div>;
+  return (
+    <ButtonWrapper onClick={action}>
+      <div className={styles.slot}>
+        <div className={styles.slot__imgWrapper}>
+          <img src={pokemon.sprites.dream_world} />
+        </div>
+        <NameScroll
+          className={styles.nameScroll}
+          name={pokemon.name}
+          viewBoxHeight="400"
+          viewBoxWidth="600"
+        />
+        <div className={styles.slot__stats}>
+          {Object.entries(pokemon.stats).map(([key, value]) => {
+            if (key === 'hp' || key === 'attack' || key === 'defense') {
+              return (
+                <div className={styles.slot__stat}>
+                  <Icon iconType={ICON_TYPES[key]} />
+                  <p className={styles.stat__value}>{value.base_stat}</p>
+                </div>
+              );
+            }
+          })}
+        </div>
+      </div>
+    </ButtonWrapper>
+  );
 };
 
 const SideBar = function SideBar({ className }) {
@@ -37,10 +78,8 @@ const SideBar = function SideBar({ className }) {
           action: null,
         };
       }
-
       setSlots(emptySlots);
     };
-
     createSlots(MAX_SELECTED);
   }, []);
 
@@ -76,7 +115,7 @@ const SideBar = function SideBar({ className }) {
 
   return (
     <div className={`${styles.sideBar} ${className}`}>
-      <h3 className={styles.title}>Selected Pokemons</h3>
+      {/* <h3 className={styles.title}>Selected Pokemons</h3> */}
       {Object.entries(slots).map(([key, value]) => {
         return <PokemonSlot key={key} slot={value} />;
       })}

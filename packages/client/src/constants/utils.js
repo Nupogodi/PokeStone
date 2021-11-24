@@ -1,14 +1,20 @@
 import { AiFillHome, AiOutlineQuestionCircle } from 'react-icons/ai';
 import { FaEllipsisV } from 'react-icons/fa';
 import { MdOutlineFormatListNumberedRtl } from 'react-icons/md';
-import { ReactComponent as ReactLogo } from 'assets/img/poke-ball/poke-ball.svg';
+import { ReactComponent as PlayIcon } from 'assets/img/poke-ball/poke-ball.svg';
+import { ReactComponent as AttackIcon } from 'assets/img/icons/attack.svg';
+import { ReactComponent as DefenseIcon } from 'assets/img/icons/defense.svg';
+import { ReactComponent as StaminaIcon } from 'assets/img/icons/stamina.svg';
 
 export const ICONS = {
   home: AiFillHome,
   ellipsis: FaEllipsisV,
-  game: ReactLogo,
+  game: PlayIcon,
   highScore: MdOutlineFormatListNumberedRtl,
   about: AiOutlineQuestionCircle,
+  attack: AttackIcon,
+  defense: DefenseIcon,
+  hp: StaminaIcon,
 };
 
 export const ICON_TYPES = {
@@ -19,6 +25,9 @@ export const ICON_TYPES = {
   setting: 'setting',
   highScore: 'highScore',
   about: 'about',
+  attack: 'attack',
+  defense: 'defense',
+  hp: 'hp',
 };
 
 export const BTN_TYPES = {
