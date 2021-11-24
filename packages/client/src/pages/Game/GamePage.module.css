@@ -3,7 +3,7 @@
   margin: 0 auto;
 
   max-width: var(--container-width);
-  height: var(--game-window-height);
+  min-height: var(--game-window-height);
 
   border: 1px solid black;
 

@@ -9,9 +9,7 @@ import styles from './SelectionStage.module.css';
 const SelectionStage = function SelectionStage() {
   return (
     <div className={styles.contentGrid}>
-      <div className={styles.header}>
-        <SearchBar />
-      </div>
+      <div className={styles.header}>{/* <SearchBar /> */}</div>
       <div className={styles.main}>
         <DisplayPanel />
       </div>

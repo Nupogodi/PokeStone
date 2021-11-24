@@ -4,12 +4,44 @@
   display: grid;
   overflow: auto;
   justify-content: center;
-  grid-template-columns:
-    repeat(
-      var(--display-panel-column-quantity),
-      var(--display-panel-column-size)
-    );
-  height: 100%;
+  grid-template-columns: repeat(
+    var(--display-panel-column-quantity),
+    var(--display-panel-column-size)
+  );
   grid-gap: 1em;
-  grid-auto-rows: var(--pokemon-card-height);
+  /* grid-auto-rows: var(--pokemon-card-height); */
+
+  border: 5px solid green;
+  max-height: var(--display-panel-height);
 }
+
+/* Phone Only */
+@media (max-width: 599px) {
+  :root {
+  }
+}
+
+/* Tablet Portrait Mode Up */
+@media (min-width: 600px) {
+  :root {
+  }
+}
+
+/*  Table Landscape Up */
+@media (min-width: 900px) {
+  :root {
+  }
+}
+
+/* Desktop Up */
+@media (min-width: 1200px) {
+  :root {
+  }
+}
+
+/* Big Desktop Up */
+
+/* @media (min-width: 1800px) {
+  :root {
+  }
+} */

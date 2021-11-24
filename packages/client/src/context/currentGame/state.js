@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 // API
 import { pokemonApi } from 'utils/api';
@@ -29,36 +29,49 @@ const CurrentGameState = function CurrentGameState({ children }) {
 
   const [state, dispatch] = useReducer(CurrentGameReducer, initialState);
 
+  // Populate selected pokemons array with nulls
+  // useEffect(() => {
+  //   // eslint-disable-next-line no-plusplus
+  //   for (let i = 0; i < MAX_SELECTED; i++) {
+  //     dispatch({
+  //       type: SELECT_POKEMON,
+  //       payload: null,
+  //     });
+  //   }
+  // }, []);
   // Methods
 
   // Selection Stage of the game
   const getPokemons = async (config) => {
-    // dispatch({
-    //   type: SET_PENDING,
-    //   payload: true,
-    // });
+    try {
+      dispatch({
+        type: SET_PENDING,
+        payload: true,
+      });
+      const { limit, page } = config;
 
-    const { limit, page } = config;
+      const response = await pokemonApi.get(
+        `${API_ROUTES.pokemonDB.url}${API_ROUTES.pokemonDB.pokemons.pokemon.url}?limit=${limit}&page=${page}`,
+      );
 
-    const response = await pokemonApi.get(
-      `${API_ROUTES.pokemonDB.url}${API_ROUTES.pokemonDB.pokemons.pokemon.url}?limit=${limit}&page=${page}`,
-    );
+      const { data } = response;
 
-    const { data } = response;
+      const { pokemons } = data;
 
-    const { pokemons } = data;
+      dispatch({
+        type: ADD_POKEMONS,
+        payload: {
+          pokemons,
+        },
+      });
 
-    dispatch({
-      type: ADD_POKEMONS,
-      payload: {
-        pokemons,
-      },
-    });
-
-    // dispatch({
-    //   type: SET_PENDING,
-    //   payload: false,
-    // });
+      dispatch({
+        type: SET_PENDING,
+        payload: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const selectPokemon = (pokemon) => {

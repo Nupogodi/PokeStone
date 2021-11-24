@@ -35,6 +35,7 @@ const CurrentGameReducer = (state, action) => {
       };
     case SET_PENDING:
       return {
+        ...state,
         pending: action.payload,
       };
 

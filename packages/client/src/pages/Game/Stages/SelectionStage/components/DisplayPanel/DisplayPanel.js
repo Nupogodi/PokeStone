@@ -17,40 +17,46 @@ const DisplayPanel = function DisplayPanel(props) {
 
   // Request limit & page in DB
   // eslint-disable-next-line
-  const [pending, setPending] = useState(false);
-  // eslint-disable-next-line
   const [currentLimit, setCurrentLimit] = useState(20);
+  const [fetchNextPage, setFetchNextPage] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   // const [hasMore, setHasMore] = useState(true);
   const wrapperRef = useRef(null);
 
-  // useEffect(() => {
-  //   // eslint-disable-next-line consistent-return
-  //   const scroll = (e) => {
-  //     const element = e.target;
-  //     if (element.scrollHeight - element.scrollTop <= 900) {
-  //       return setCurrentPage(currentPage + 1);
-  //     }
-  //   };
+  useEffect(() => {
+    console.log('useEffect 1');
+    // eslint-disable-next-line consistent-return
+    const scroll = (e) => {
+      const element = e.target;
+      console.log(element.scrollHeight, 'scrollHeight');
+      console.log(element.scrollTop, 'scrollTop');
+      if (element.scrollHeight - element.scrollTop <= 900) {
+        console.log('load more!');
+        return setFetchNextPage(true);
+      }
+    };
 
-  //   if (wrapperRef.current) {
-  //     wrapperRef.current.addEventListener('scroll', scroll);
-  //   }
+    if (wrapperRef.current) {
+      wrapperRef.current.addEventListener('scroll', scroll);
+      console.log('scroll');
+    }
 
-  //   return () => {
-  //     if (wrapperRef.current) {
-  //       // eslint-disable-next-line
-  //       wrapperRef.current.removeEventListener('scroll', scroll);
-  //     }
-  //   };
-  //   // eslint-disable-next-line
-  // }, [wrapperRef]);
+    return () => {
+      if (wrapperRef.current) {
+        // eslint-disable-next-line
+        wrapperRef.current.removeEventListener('scroll', scroll);
+      }
+    };
+    // eslint-disable-next-line
+  }, [wrapperRef, fetchNextPage, currentGameContext.pending]);
 
   // Request pokemon list once component loads
   useEffect(() => {
-    if (pending) {
+    if (currentGameContext.pending || !fetchNextPage) {
+      setFetchNextPage(false);
       return false;
     }
+    setCurrentPage(currentPage + 1);
 
     const config = {
       limit: currentLimit,
@@ -58,8 +64,13 @@ const DisplayPanel = function DisplayPanel(props) {
     };
     // eslint-disable-next-line
     currentGameContext.getPokemons(config);
-  }, [currentPage, pending]);
+    setFetchNextPage(false);
+  }, [fetchNextPage, currentPage]);
   const { pokemonList } = currentGameContext;
+
+  if (!pokemonList) {
+    return null;
+  }
 
   return (
     <div ref={wrapperRef} className={`${styles.displayPanel} ${className}`}>
