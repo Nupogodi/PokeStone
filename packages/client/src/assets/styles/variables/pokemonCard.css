@@ -1,7 +1,6 @@
 :root {
   /* Pokemon Card */
-  --pokemon-card-height: 300px;
-  --pokemon-card-width: 210px;
+  --pokemon-card-width: 150px;
   --pokemon-card-cover-width: 100px;
   --pokemon-card-title-font-size: 24px;
   --pokemon-card-stat-font-size: 12px;

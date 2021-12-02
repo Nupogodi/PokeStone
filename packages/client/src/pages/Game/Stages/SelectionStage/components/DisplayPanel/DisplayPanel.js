@@ -9,7 +9,7 @@ import PokemonCard from 'components/Game/pokemonCards/PokemonCard';
 // Styles
 import styles from './DisplayPanel.module.css';
 
-const DisplayPanel = function DisplayPanel(props) {
+const DisplayPanel = (props) => {
   const { className } = props;
   const currentGameContext = useContext(CurrentGameContext);
 
@@ -24,21 +24,16 @@ const DisplayPanel = function DisplayPanel(props) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    console.log('useEffect 1');
     // eslint-disable-next-line consistent-return
     const scroll = (e) => {
       const element = e.target;
-      console.log(element.scrollHeight, 'scrollHeight');
-      console.log(element.scrollTop, 'scrollTop');
       if (element.scrollHeight - element.scrollTop <= 900) {
-        console.log('load more!');
         return setFetchNextPage(true);
       }
     };
 
     if (wrapperRef.current) {
       wrapperRef.current.addEventListener('scroll', scroll);
-      console.log('scroll');
     }
 
     return () => {
@@ -65,7 +60,7 @@ const DisplayPanel = function DisplayPanel(props) {
     // eslint-disable-next-line
     currentGameContext.getPokemons(config);
     setFetchNextPage(false);
-  }, [fetchNextPage, currentPage]);
+  }, [fetchNextPage, currentPage, currentGameContext, currentLimit]);
   const { pokemonList } = currentGameContext;
 
   if (!pokemonList) {

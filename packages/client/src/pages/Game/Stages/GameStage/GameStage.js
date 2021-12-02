@@ -1,7 +1,9 @@
 import React from 'react';
 
-const GameStage = function GameStage() {
-  return <div>Game Stage</div>;
+import styles from './GameStage.module.css';
+
+const GameStage = () => {
+  return <div className={styles.gameWindow}>Game Stage</div>;
 };
 
 export default GameStage;

@@ -5,14 +5,14 @@ import React from 'react';
 // Styles
 import styles from './NameScroll.module.css';
 
-const NameScroll = function NameScroll({
+const NameScroll = ({
   name,
   className,
   width,
   height,
   viewBoxWidth = 800,
   viewBoxHeight = 400,
-}) {
+}) => {
   return (
     <svg
       className={`${styles.svg} ${className}`}
@@ -92,6 +92,13 @@ const NameScroll = function NameScroll({
             fill="#ffffff"
             transform="rotate(-180, 310.85, 243.168)"
           />
+          <text
+            x="50%"
+            y="70%"
+            style={{ fontSize: '66', textAnchor: 'middle' }}
+          >
+            {name}
+          </text>
         </g>
       </g>
     </svg>

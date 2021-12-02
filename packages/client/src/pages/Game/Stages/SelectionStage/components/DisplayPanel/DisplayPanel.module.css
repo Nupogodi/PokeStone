@@ -8,36 +8,40 @@
     var(--display-panel-column-quantity),
     var(--display-panel-column-size)
   );
-  grid-gap: 1em;
-  /* grid-auto-rows: var(--pokemon-card-height); */
+  /* stylelint-disable-line */
+  height: var(--display-panel-height);
 
   border: 5px solid green;
-  max-height: var(--display-panel-height);
+  grid-gap: 1em;
 }
 
 /* Phone Only */
-@media (max-width: 599px) {
+
+/* @media (max-width: 599px) {
   :root {
   }
 }
 
 /* Tablet Portrait Mode Up */
-@media (min-width: 600px) {
+
+/* @media (min-width: 600px) {
   :root {
   }
-}
+} */
 
 /*  Table Landscape Up */
-@media (min-width: 900px) {
+
+/* @media (min-width: 900px) {
   :root {
   }
-}
+} */
 
 /* Desktop Up */
-@media (min-width: 1200px) {
+
+/* @media (min-width: 1200px) {
   :root {
   }
-}
+} */
 
 /* Big Desktop Up */
 

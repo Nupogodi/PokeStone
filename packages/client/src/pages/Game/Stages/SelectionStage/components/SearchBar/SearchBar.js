@@ -6,7 +6,7 @@ import Filter from '../Filter/Filter';
 // Styles
 import styles from './SearchBar.module.css';
 
-const SearchBar = function SearchBar(props) {
+const SearchBar = (props) => {
   const { className } = props;
   return (
     <div className={`${styles.searchBar} ${className}`}>

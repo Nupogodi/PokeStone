@@ -1,6 +1,17 @@
 import React, { Fragment } from 'react';
 
-const InitStage = function InitStage() {
+// Constants
+import {
+  BTN_TYPES,
+  BTN_COLOR,
+  BTN_STYLES,
+  STAGES_CONFIG,
+} from 'constants/index';
+
+// Components
+import Button from 'components/Button/Button';
+
+const InitStage = ({ setCurrentGameStage }) => {
   return (
     <>
       <img
@@ -17,6 +28,13 @@ const InitStage = function InitStage() {
         aperiam! Suscipit, eum odio libero accusantium ex a quidem facere atque
         earum iusto sapiente nemo?
       </p>
+      <Button
+        btnType={BTN_TYPES.button}
+        btnStyle={BTN_STYLES.outline.outlineDark}
+        btnColor={BTN_COLOR.dark}
+        value="Play Game"
+        action={() => setCurrentGameStage(STAGES_CONFIG.selection)}
+      />
     </>
   );
 };

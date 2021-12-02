@@ -12,7 +12,7 @@ import Button from 'components/Button/Button';
 // styles
 import styles from './index.module.css';
 
-const MainPage = function MainPage() {
+const MainPage = () => {
   return (
     <div className={styles.mainPage}>
       <div className={`${styles.heroContent} ${styles.grid}`}>

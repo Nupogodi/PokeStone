@@ -20,7 +20,7 @@ import {
 // styles
 import 'assets/styles/main.css';
 
-const App = function App() {
+const App = () => {
   return (
     <Router>
       <div className="App">
