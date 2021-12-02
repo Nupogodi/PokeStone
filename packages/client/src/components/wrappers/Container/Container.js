@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import styles from './Container.module.css';
 
-const Container = function Container({ children, className = '' }) {
+const Container = ({ children, className = '' }) => {
   return <div className={`${className} ${styles.container}`}>{children}</div>;
 };
 

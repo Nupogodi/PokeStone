@@ -9,7 +9,7 @@ import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 // styles
 import styles from './PokemonCard.module.css';
 
-const PokemonCard = function PokemonCard(props) {
+const PokemonCard = (props) => {
   const { pokemon, className, onClick } = props;
 
   const { height, weight, stats, sprites, name, pokeApiID, types } = pokemon;

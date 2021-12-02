@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 
 // API
 import { pokemonApi } from 'utils/api';
@@ -18,27 +18,18 @@ import {
 
 // Constants
 
-const CurrentGameState = function CurrentGameState({ children }) {
+const CurrentGameState = ({ children }) => {
   const initialState = {
     users: [],
     user: {},
     selectedPokemons: [],
+    currentGameStage: null,
     pokemonList: [],
     pending: false,
   };
 
   const [state, dispatch] = useReducer(CurrentGameReducer, initialState);
 
-  // Populate selected pokemons array with nulls
-  // useEffect(() => {
-  //   // eslint-disable-next-line no-plusplus
-  //   for (let i = 0; i < MAX_SELECTED; i++) {
-  //     dispatch({
-  //       type: SELECT_POKEMON,
-  //       payload: null,
-  //     });
-  //   }
-  // }, []);
   // Methods
 
   // Selection Stage of the game
@@ -70,6 +61,7 @@ const CurrentGameState = function CurrentGameState({ children }) {
         payload: false,
       });
     } catch (error) {
+      // eslint-disable-next-line
       console.log(error);
     }
   };

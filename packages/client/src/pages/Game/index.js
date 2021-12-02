@@ -22,7 +22,7 @@ const STAGES_COMPONENTS_CONFIG = {
   [STAGES_CONFIG.end]: EndGameStage,
 };
 
-const GamePage = function GamePage() {
+const GamePage = () => {
   const [currentGameStage, setCurrentGameStage] = useState(STAGES_CONFIG.init);
 
   const CurrentStageComponent = useMemo(() => {
@@ -32,7 +32,7 @@ const GamePage = function GamePage() {
   return (
     <CurrentGameState>
       <div className={styles.gameWindow}>
-        <CurrentStageComponent />
+        <CurrentStageComponent setCurrentGameStage={setCurrentGameStage} />
         <button
           type="button"
           style={{ position: 'absolute', top: 0, right: 0 }}

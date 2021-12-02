@@ -7,7 +7,7 @@
 
   /* Selection Stage Page Layout */
 
-  /* General Layout*/
+  /* General Layout */
   --content-template-columns: 1fr auto;
   --content-template-rows: var(--search-bar-height) var(--display-panel-height);
 
@@ -29,6 +29,7 @@
   --sidebar-max-selected: 3;
   --sidebar-banner-width: 100;
   --sidebar-banner-height: 100;
+
   /* End of Selection Stage Page Layout */
 }
 
@@ -38,7 +39,7 @@
     --display-panel-column-quantity: 1;
     --display-panel-height: calc(
       var(--game-window-height) - var(--search-bar-height) -
-        var(--sidebar-folded-height)
+      var(--sidebar-folded-height)
     );
   }
 }

@@ -3,10 +3,8 @@
 .pokemonCard {
   position: relative;
 
-  display: flex;
   overflow: hidden;
-  flex-direction: column;
-  height: var(--pokemon-card-height);
+  max-width: var(--pokemon-card-width);
 
   font-weight: 700;
   text-transform: uppercase;
@@ -87,8 +85,7 @@
   max-width: var(--pokemon-card-cover-width);
   max-height: var(--pokemon-card-cover-width);
 
-  transition:
-    transform var(--duration-slow) ease,
+  transition: transform var(--duration-slow) ease,
     left var(--duration-slow) ease,
     top var(--duration-slow) ease;
   transform: scale(0.7);

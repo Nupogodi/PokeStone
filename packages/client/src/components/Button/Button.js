@@ -3,14 +3,7 @@ import React from 'react';
 // styles
 import styles from './Button.module.css';
 
-const Button = function Button({
-  btnType,
-  btnStyle,
-  value,
-  className,
-  action,
-  btnColor,
-}) {
+const Button = ({ btnType, btnStyle, value, className, action, btnColor }) => {
   return (
     <button
       onClick={action}

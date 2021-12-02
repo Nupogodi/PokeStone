@@ -1,9 +1,10 @@
 .contentGrid {
-  min-height: 100%;
-  max-height: var(--game-window-height);
   display: grid;
-  grid-template-columns: 1fr auto;
+  justify-content: center;
+  grid-template-columns: 1fr minmax(auto, 200px);
   grid-template-rows: var(--search-bar-height) 1fr;
+  min-height: inherit;
+  max-height: var(--game-window-height);
 }
 
 .header {
@@ -12,7 +13,7 @@
 }
 
 .main {
-  background-color: rgb(50, 50, 167);
+  background-color: rgb(50 50 167);
 }
 
 .sideBar {
@@ -24,8 +25,8 @@
   .contentGrid {
     grid-template-columns: 1fr;
     grid-template-rows: var(--search-bar-height) 1fr var(
-        --sidebar-folded-height
-      );
+      --sidebar-folded-height
+    );
   }
 
   .header {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Components
 import Input from 'components/Input/Input';
 
-const Filter = function Filter() {
+const Filter = () => {
   const [searchString, setSearchString] = useState('');
 
   const handleInputChange = (e) => {

@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import styles from './Input.module.css';
 
-const Input = function Input({
+const Input = ({
   type,
   name,
   id,
@@ -15,7 +15,7 @@ const Input = function Input({
   inputValue,
   labelValue,
   step,
-}) {
+}) => {
   return (
     <div className={styles.formGroup}>
       <input

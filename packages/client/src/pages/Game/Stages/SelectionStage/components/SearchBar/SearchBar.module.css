@@ -1,9 +1,10 @@
 .searchBar {
   padding: 0 1em;
-  min-height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 100%;
 
   border: 1px solid magenta;
   background-color: salmon;

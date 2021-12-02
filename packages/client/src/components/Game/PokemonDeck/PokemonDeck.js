@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './PokemonDeck.module.css';
 
-const PokemonDeck = function PokemonDeck() {
+const PokemonDeck = () => {
   return <div className={styles.pokemonDeck}>Pokemon Deck</div>;
 };
 
