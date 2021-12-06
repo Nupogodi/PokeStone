@@ -1,7 +1,7 @@
 .contentGrid {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr minmax(auto, 200px);
+  grid-template-columns: 1fr 200px;
   grid-template-rows: var(--search-bar-height) 1fr;
   min-height: inherit;
   max-height: var(--game-window-height);
@@ -23,10 +23,11 @@
 /* Media Querries */
 @media (max-width: 599px) {
   .contentGrid {
+    /* stylelint-disable */
     grid-template-columns: 1fr;
     grid-template-rows: var(--search-bar-height) 1fr var(
-      --sidebar-folded-height
-    );
+        --sidebar-folded-height
+      );
   }
 
   .header {

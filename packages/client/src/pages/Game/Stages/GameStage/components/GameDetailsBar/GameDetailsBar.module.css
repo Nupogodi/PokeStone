@@ -1,0 +1,11 @@
+.gameDetailsBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lvlDetail,
+.scoreDetail {
+  padding: 1rem;
+  /* stylelint-disable */
+  border: 1px solid green;
+}

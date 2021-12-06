@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import React from 'react';
 
 // Constants
@@ -10,7 +11,7 @@ import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import styles from './PokemonCard.module.css';
 
 const PokemonCard = (props) => {
-  const { pokemon, className, onClick } = props;
+  const { pokemon = null, className, onClick } = props;
 
   const { height, weight, stats, sprites, name, pokeApiID, types } = pokemon;
 

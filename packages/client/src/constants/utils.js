@@ -1,5 +1,11 @@
-import { AiFillHome, AiOutlineQuestionCircle } from 'react-icons/ai';
+import {
+  AiFillHome,
+  AiOutlineQuestionCircle,
+  AiOutlineLogin,
+} from 'react-icons/ai';
+import { BiUserCircle } from 'react-icons/bi';
 import { FaEllipsisV } from 'react-icons/fa';
+import { VscSignOut } from 'react-icons/vsc';
 import { MdOutlineFormatListNumberedRtl } from 'react-icons/md';
 import { ReactComponent as PlayIcon } from 'assets/img/poke-ball/poke-ball.svg';
 import { ReactComponent as AttackIcon } from 'assets/img/icons/attack.svg';
@@ -15,6 +21,10 @@ export const ICONS = {
   attack: AttackIcon,
   defense: DefenseIcon,
   hp: StaminaIcon,
+  signUp: AiOutlineLogin,
+  signIn: AiOutlineLogin,
+  signOut: VscSignOut,
+  user: BiUserCircle,
 };
 
 export const ICON_TYPES = {
@@ -28,6 +38,10 @@ export const ICON_TYPES = {
   attack: 'attack',
   defense: 'defense',
   hp: 'hp',
+  signUp: 'signUp',
+  signIn: 'signIn',
+  signOut: 'signOut',
+  user: 'user',
 };
 
 export const BTN_TYPES = {
