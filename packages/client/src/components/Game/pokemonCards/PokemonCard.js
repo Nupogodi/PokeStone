@@ -20,14 +20,7 @@ const PokemonCard = (props) => {
 
   return (
     <ButtonWrapper onClick={onClick}>
-      <div
-        className={`${className} ${styles.pokemonCard}`}
-        style={
-          {
-            // backgroundImage: `url(${CARD_TEXTURES[types[0].name].texture})`,
-          }
-        }
-      >
+      <div className={`${className} ${styles.pokemonCard}`}>
         <div className={styles.info_cardCover}>
           <img
             src={sprites.dream_world || sprites.front_default}
