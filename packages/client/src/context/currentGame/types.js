@@ -1,7 +1,0 @@
-export const GET_POKEMONS = 'GET_POKEMONS';
-export const GET_POKEMON = 'GET_POKEMON';
-export const SET_POKEMONS = 'SET_POKEMONS';
-export const ADD_POKEMONS = 'ADD_POKEMONS';
-export const SELECT_POKEMON = 'SELECT_POKEMON';
-export const DESELECT_POKEMON = 'DESELECT_POKEMON';
-export const SET_PENDING = 'SET_PENDING';

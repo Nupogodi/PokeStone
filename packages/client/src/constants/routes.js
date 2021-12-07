@@ -11,6 +11,9 @@ export const ROUTES = {
     title: 'High Score',
   },
   about: { url: '/about', title: 'About' },
+  signIn: { url: '/signin', title: 'Sign in' },
+  signUp: { url: '/signup', title: 'Sign Up' },
+  signOut: { url: '/signout', title: 'Sign Out' },
 };
 
 export const NAVBAR_MENU = {
@@ -21,6 +24,11 @@ export const NAVBAR_MENU = {
       icon: ICON_TYPES.home,
     },
     game: { url: ROUTES.game.url, title: 'Game', icon: ICON_TYPES.game },
+    signIn: {
+      url: ROUTES.signIn.url,
+      title: 'Sign In',
+      icon: ICON_TYPES.signIn,
+    },
   },
   subMenu: {
     head: {

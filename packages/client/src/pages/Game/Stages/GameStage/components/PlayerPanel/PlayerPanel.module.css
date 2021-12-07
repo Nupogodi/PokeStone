@@ -1,0 +1,9 @@
+.playerPanel {
+  display: flex;
+  justify-content: center;
+  min-height: inherit;
+}
+
+.pokemonDeck {
+  background-color: rebeccapurple;
+}

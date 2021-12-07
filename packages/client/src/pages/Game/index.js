@@ -1,49 +1,49 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useContext } from 'react';
 
 // Context
-import CurrentGameState from 'context/currentGame/state';
+import CurrentGameContext from 'context/currentGame/context';
 
 // Constants
-import { STAGES_CONFIG } from 'constants/game/gameStages';
+import { STAGES_CONFIG } from 'constants/index';
 
-// Game Stages for this page
-import InitStage from './Stages/InitStage/InitStage';
-import SelectionStage from './Stages/SelectionStage/SelectionStage';
-import GameStage from './Stages/GameStage/GameStage';
-import EndGameStage from './Stages/EndGameStage/EndGameStage';
+// Game Stages
+import InitStage from 'pages/Game/Stages/InitStage/InitStage';
+import SelectionStage from 'pages/Game/Stages/SelectionStage/SelectionStage';
+import GameStage from 'pages/Game/Stages/GameStage/GameStage';
+import EndGameStage from 'pages/Game/Stages/EndGameStage/EndGameStage';
 
 // Styles
 import styles from './GamePage.module.css';
 
-const STAGES_COMPONENTS_CONFIG = {
-  [STAGES_CONFIG.init]: InitStage,
-  [STAGES_CONFIG.selection]: SelectionStage,
-  [STAGES_CONFIG.game]: GameStage,
-  [STAGES_CONFIG.end]: EndGameStage,
-};
-
 const GamePage = () => {
-  const [currentGameStage, setCurrentGameStage] = useState(STAGES_CONFIG.init);
+  const currentGameContext = useContext(CurrentGameContext);
+
+  const { currentGameStage, setCurrentGameStage } = currentGameContext;
 
   const CurrentStageComponent = useMemo(() => {
+    const STAGES_COMPONENTS_CONFIG = {
+      [STAGES_CONFIG.init]: InitStage,
+      [STAGES_CONFIG.selection]: SelectionStage,
+      [STAGES_CONFIG.game]: GameStage,
+      [STAGES_CONFIG.end]: EndGameStage,
+    };
+
     return STAGES_COMPONENTS_CONFIG[currentGameStage];
   }, [currentGameStage]);
 
   return (
-    <CurrentGameState>
-      <div className={styles.gameWindow}>
-        <CurrentStageComponent setCurrentGameStage={setCurrentGameStage} />
-        <button
-          type="button"
-          style={{ position: 'absolute', top: 0, right: 0 }}
-          onClick={() => {
-            setCurrentGameStage(STAGES_CONFIG.selection);
-          }}
-        >
-          Next game stage
-        </button>
-      </div>
-    </CurrentGameState>
+    <div className={styles.gameWindow}>
+      <CurrentStageComponent setCurrentGameStage={setCurrentGameStage} />
+      <button
+        type="button"
+        style={{ position: 'absolute', top: 0, right: 0 }}
+        onClick={() => {
+          setCurrentGameStage(STAGES_CONFIG.selection);
+        }}
+      >
+        Next game stage
+      </button>
+    </div>
   );
 };
 

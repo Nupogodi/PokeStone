@@ -1,3 +1,20 @@
-.gameWindow {
-  display: grid;
+.gameStageWindow {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+}
+
+.gameStageWindow > * {
+  border: 1px solid black;
+}
+
+.header,
+.footer {
+  min-height: 5rem;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }

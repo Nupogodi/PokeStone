@@ -1,0 +1,12 @@
+.gameDisplay {
+  padding: 5rem;
+  /* stylelint-disable no-eol-whitespace */
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 25%);
+  min-width: 100%;
+}
+
+.gameDisplay > div {
+  border: 1px solid;
+}

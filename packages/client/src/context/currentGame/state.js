@@ -1,44 +1,30 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 
 // API
 import { pokemonApi } from 'utils/api';
 
 // Context & Reducer
-import { API_ROUTES, MAX_SELECTED } from 'constants/index';
+import { API_ROUTES, MAX_SELECTED, STAGES_CONFIG } from 'constants/index';
 import CurrentGameContext from './context';
-import CurrentGameReducer from './reducer';
-
-// Types
-import {
-  ADD_POKEMONS,
-  SELECT_POKEMON,
-  DESELECT_POKEMON,
-  SET_PENDING,
-} from './types';
 
 // Constants
 
 const CurrentGameState = ({ children }) => {
-  const initialState = {
-    users: [],
-    user: {},
-    selectedPokemons: [],
-    currentGameStage: null,
-    pokemonList: [],
-    pending: false,
-  };
+  // const [users, setUsers] = useState([]);
+  // const [user, setUser] = useState(null);
+  const [pending, setPending] = useState(false);
 
-  const [state, dispatch] = useReducer(CurrentGameReducer, initialState);
+  // Game State
+  const [currentGameStage, setCurrentGameStage] = useState(STAGES_CONFIG.init);
+  const [selectedPokemons, setSelectedPokemons] = useState([]);
+  const [pokemonList, setPokemonList] = useState([]);
 
   // Methods
 
   // Selection Stage of the game
   const getPokemons = async (config) => {
     try {
-      dispatch({
-        type: SET_PENDING,
-        payload: true,
-      });
+      setPending(true);
       const { limit, page } = config;
 
       const response = await pokemonApi.get(
@@ -49,17 +35,9 @@ const CurrentGameState = ({ children }) => {
 
       const { pokemons } = data;
 
-      dispatch({
-        type: ADD_POKEMONS,
-        payload: {
-          pokemons,
-        },
-      });
+      setPokemonList(pokemonList.concat(pokemons));
 
-      dispatch({
-        type: SET_PENDING,
-        payload: false,
-      });
+      setPending(false);
     } catch (error) {
       // eslint-disable-next-line
       console.log(error);
@@ -68,32 +46,31 @@ const CurrentGameState = ({ children }) => {
 
   const selectPokemon = (pokemon) => {
     if (
-      state.selectedPokemons.find((obj) => obj.name === pokemon.name) ||
-      state.selectedPokemons.length >= MAX_SELECTED
+      selectedPokemons.find((obj) => obj.name === pokemon.name) ||
+      selectedPokemons.length >= MAX_SELECTED
     ) {
       return;
     }
-
-    dispatch({
-      type: SELECT_POKEMON,
-      payload: pokemon,
-    });
+    setSelectedPokemons(selectedPokemons.concat(pokemon));
   };
   const deselectPokemon = (pokemon) => {
-    dispatch({
-      type: DESELECT_POKEMON,
-      payload: pokemon,
-    });
+    setSelectedPokemons(
+      selectedPokemons.filter(
+        (selectedPokemon) => selectedPokemon.name !== pokemon.name,
+      ),
+    );
   };
   return (
     <CurrentGameContext.Provider
       // eslint-disable-next-line
       value={{
-        users: state.users,
-        user: state.user,
-        pending: state.pending,
-        selectedPokemons: state.selectedPokemons,
-        pokemonList: state.pokemonList,
+        // users,
+        // user,
+        pending,
+        currentGameStage,
+        setCurrentGameStage,
+        selectedPokemons,
+        pokemonList,
         getPokemons,
         selectPokemon,
         deselectPokemon,
