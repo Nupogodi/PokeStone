@@ -70,3 +70,10 @@ export const CARD_TEXTURE_TYPES = {
   unknown: 'unknown',
   shadow: 'shadow',
 };
+
+export const CARD_STAT_COLORS = {
+  hp: '#ff6e6e',
+  speed: '#A5FF6E',
+  attack: '#fc6eff',
+  defense: '#80b3ff',
+};

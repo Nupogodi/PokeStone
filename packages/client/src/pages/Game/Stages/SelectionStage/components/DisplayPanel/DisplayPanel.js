@@ -70,7 +70,10 @@ const DisplayPanel = (props) => {
   return (
     <div ref={wrapperRef} className={`${styles.displayPanel} ${className}`}>
       {pokemonList.length > 0 &&
-        pokemonList.map((pokemon) => {
+        pokemonList.map((pokemon, index) => {
+          // if (index > 0) {
+          //   return;
+          // }
           return (
             <PokemonCard
               onClick={() => currentGameContext.selectPokemon(pokemon)}

@@ -1,9 +1,5 @@
 :root {
   /* Pokemon Card */
-  --pokemon-card-width: 150px;
-  --pokemon-card-cover-width: 100px;
-  --pokemon-card-title-font-size: 24px;
-  --pokemon-card-stat-font-size: 12px;
 
   /* Animation and Hover Effects */
   --duration-fast: 0.1s;

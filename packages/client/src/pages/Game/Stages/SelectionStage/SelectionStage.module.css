@@ -1,36 +1,48 @@
 .contentGrid {
+  position: relative;
+
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 200px;
-  grid-template-rows: var(--search-bar-height) 1fr;
+  grid-template-columns: 1fr minmax(200px, 300px);
   min-height: inherit;
-  max-height: var(--game-window-height);
+
+  background-image: url('https://wallpapercave.com/wp/wp2711152.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .header {
-  background-color: salmon;
   grid-column: 1 / end;
+
+  z-index: 1;
 }
 
-.main {
-  background-color: rgb(50 50 167);
-}
-
+.header,
 .sideBar {
-  background-color: gray;
+  position: relative;
+
+  overflow: hidden;
 }
 
-/* Media Querries */
-@media (max-width: 599px) {
-  .contentGrid {
-    /* stylelint-disable */
-    grid-template-columns: 1fr;
-    grid-template-rows: var(--search-bar-height) 1fr var(
-        --sidebar-folded-height
-      );
-  }
+.header::before,
+.sideBar::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
 
-  .header {
-    grid-column: 1;
-  }
+  overflow: hidden;
+  width: 110%;
+  height: 110%;
+
+  border-radius: 15px;
+  background: inherit;
+  box-shadow: inset 0 0 0 3000px rgb(255 255 255 / 19.2%);
+  filter: blur(10px);
+
+  content: '';
 }
