@@ -1,98 +1,29 @@
 .sideBar {
+  padding: 2rem;
+
   display: flex;
+  align-items: space-between;
   flex-direction: column;
-  min-height: 100%;
 
   text-align: center;
 
-  background-color: grey;
+  color: #fff;
 }
 
-/* Slots */
-.slots {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
+.title {
+  margin-bottom: 1rem;
 
-.slot {
-  position: relative;
-  padding: 0.5rem 1rem;
-
-  display: flex;
-  align-items: center;
-  flex: 1;
-  flex-direction: column;
-  /* stylelint-disable-line */
-  border-bottom: 1px solid black;
-}
-
-.slot__imgWrapper {
-  position: absolute;
-  z-index: 1;
-
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 70%;
-  height: 70%;
-
-  border: 3px solid red;
-  border-radius: 50%;
-  background-color: beige;
-
-  transform: translateY(20%);
-}
-
-.nameScroll {
-  position: absolute;
-  top: 55%;
-  z-index: 3;
-
-  width: 75%;
-  max-width: 200px;
-}
-
-.slot__title {
-  text-align: center;
-}
-
-.slot__stats {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  padding-top: 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-}
-
-.slot__stat {
-  margin: 0 0.25rem;
-
-  display: flex;
-  min-height: 1.5rem;
+  letter-spacing: 2px;
 }
 
 .proceedBtn {
+  z-index: 2;
+  margin: 1rem auto;
+
+  visibility: hidden;
   align-self: center;
 }
 
-/* Phone Only */
-
-/* @media (max-width: 599px) {
-  :root {
-  }
-
-  .sideBar {
-  }
-
-  .slots {
-    flex-direction: row;
-    flex: 1;
-  }
-} */
+.showBtn {
+  visibility: visible;
+}

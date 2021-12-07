@@ -6,6 +6,6 @@ const STAGES_CONFIG = {
 };
 
 // Selection Stage
-const MAX_SELECTED = 3;
+const MAX_SELECTED = 1;
 
 export { STAGES_CONFIG, MAX_SELECTED };

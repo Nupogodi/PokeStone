@@ -16,7 +16,7 @@ const SelectionStage = ({ setCurrentGameStage }) => {
         <DisplayPanel />
       </div>
       <div className={styles.sideBar}>
-        <SideBar setCurrentGameStage={setCurrentGameStage} />
+        <SideBar />
       </div>
     </div>
   );

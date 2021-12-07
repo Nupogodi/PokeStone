@@ -11,6 +11,7 @@ import { ReactComponent as PlayIcon } from 'assets/img/poke-ball/poke-ball.svg';
 import { ReactComponent as AttackIcon } from 'assets/img/icons/attack.svg';
 import { ReactComponent as DefenseIcon } from 'assets/img/icons/defense.svg';
 import { ReactComponent as StaminaIcon } from 'assets/img/icons/stamina.svg';
+import { ReactComponent as SpeedIcon } from 'assets/img/icons/speed.svg';
 
 export const ICONS = {
   home: AiFillHome,
@@ -20,6 +21,7 @@ export const ICONS = {
   about: AiOutlineQuestionCircle,
   attack: AttackIcon,
   defense: DefenseIcon,
+  speed: SpeedIcon,
   hp: StaminaIcon,
   signUp: AiOutlineLogin,
   signIn: AiOutlineLogin,
@@ -42,6 +44,7 @@ export const ICON_TYPES = {
   signIn: 'signIn',
   signOut: 'signOut',
   user: 'user',
+  speed: 'speed',
 };
 
 export const BTN_TYPES = {
