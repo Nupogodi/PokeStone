@@ -35,6 +35,7 @@
         "endOfLine": "auto"
       }
     ],
+    "jsx-a11y/label-has-associated-control": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": [2, 2],

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -8,11 +8,19 @@ import { ROUTES } from 'constants/routes';
 
 // components
 import Button from 'components/Button/Button';
+import AuthForm from 'components/AuthForm/AuthForm';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 // styles
 import styles from './index.module.css';
 
 const MainPage = () => {
+  // Modal settings
+  const [open, setOpen] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
   return (
     <div className={styles.mainPage}>
       <div className={`${styles.heroContent} ${styles.grid}`}>
@@ -23,16 +31,25 @@ const MainPage = () => {
             officia dignissimos assumenda praesentium odit unde, quis nostrum
             amet possimus maxime maiores nulla dolorum rerum aspernatur?
           </p>
-          <Link to={ROUTES.game.url}>
-            <Button
-              btnType={BTN_TYPES.button}
-              btnStyle={BTN_STYLES.outline.outlineDark}
-              btnColor={BTN_COLOR.dark}
-              value="Play"
-            />
-          </Link>
+          <Button
+            btnType={BTN_TYPES.button}
+            btnStyle={BTN_STYLES.outline.outlineDark}
+            btnColor={BTN_COLOR.dark}
+            value="Play"
+            action={onOpenModal}
+          />
         </div>
       </div>
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        center
+        classNames={{
+          modal: styles.modal,
+        }}
+      >
+        <AuthForm />
+      </Modal>
     </div>
   );
 };

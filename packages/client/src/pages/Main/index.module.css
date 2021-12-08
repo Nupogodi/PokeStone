@@ -1,6 +1,5 @@
 .heroContent {
   min-height: 70vh;
-
   background: url('assets/img/pokemon-hero-2.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -22,4 +21,10 @@
 
 .whiteText {
   color: #fff;
+}
+
+/* Modal */
+.modal {
+  padding: 0;
+  border-radius: 10px;
 }

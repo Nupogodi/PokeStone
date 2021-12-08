@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'react-responsive-modal/styles.css';
 
 // state
 import { ProvideAuth } from 'hooks/useAuth';

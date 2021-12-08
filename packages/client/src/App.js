@@ -14,8 +14,6 @@ import { ROUTES } from './constants/routes';
 // Pages
 import {
   MainPage,
-  SignInPage,
-  SignUpPage,
   GamePage,
   ScorePage,
   AboutPage,
@@ -34,12 +32,6 @@ const App = () => {
           <Switch>
             <Route exact path={ROUTES.main.url}>
               <MainPage />
-            </Route>
-            <Route exact path={ROUTES.signUp.url}>
-              <SignUpPage />
-            </Route>
-            <Route exact path={ROUTES.signIn.url}>
-              <SignInPage />
             </Route>
             <Route exact path={ROUTES.game.url}>
               <GamePage />

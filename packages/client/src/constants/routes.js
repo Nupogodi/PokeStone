@@ -73,5 +73,25 @@ export const API_ROUTES = {
       },
     },
   },
-  users: {},
+  auth: {
+    signin: {
+      title: 'Sign in',
+      url: '/signin',
+    },
+    signup: {
+      title: 'Sign up',
+      url: '/signup',
+    },
+  },
+  users: {
+    getUser: '/users',
+    getUsers: '/users/top',
+    updateUser: '/users',
+  },
 };
+
+// POST Sign In
+// POST Sign Up
+// GET User
+// GET Users
+// PUT User
