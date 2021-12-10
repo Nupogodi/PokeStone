@@ -6,13 +6,7 @@ import { ICONS } from 'constants/index';
 // Styles
 import styles from './Icon.module.css';
 
-const Icon = ({
-  iconType,
-  className,
-  text = '',
-  height = '1em',
-  width = '1em',
-}) => {
+const Icon = ({ iconType, className, height = '1em', width = '1em' }) => {
   // eslint-disable-next-line no-shadow
 
   const IconComponent = ICONS[iconType];
@@ -23,7 +17,7 @@ const Icon = ({
 
   return (
     <i className={styles.icon}>
-      <IconComponent height={height} width={width} />{' '}
+      <IconComponent className={className} height={height} width={width} />{' '}
     </i>
   );
 };

@@ -6,6 +6,7 @@ module.exports = {
   ],
   plugins: ['stylelint-order', 'stylelint-selector-no-empty'],
   rules: {
+    'color-function-notation': null,
     'declaration-colon-newline-after': null,
     'string-quotes': null,
     'declaration-empty-line-before': null,

@@ -28,6 +28,13 @@ ul {
   list-style: none;
 }
 
+/* Modal */
+.modal {
+  padding: 0;
+
+  border-radius: 10px;
+}
+
 /*  Typography */
 
 h1 {

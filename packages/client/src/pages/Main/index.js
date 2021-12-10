@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+// Auth
+import { useAuth } from 'hooks/useAuth';
 
-// constants
+// Constants
 import { BTN_TYPES, BTN_STYLES, BTN_COLOR } from 'constants/utils';
 import { ROUTES } from 'constants/routes';
 
-// components
+// Components
 import Button from 'components/Button/Button';
-import AuthForm from 'components/AuthForm/AuthForm';
-import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
 
-// styles
+// Styles
 import styles from './index.module.css';
 
 const MainPage = () => {
-  // Modal settings
-  const [open, setOpen] = useState(false);
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
+  const history = useHistory();
+
+  const routeChange = (path) => {
+    history.push(path);
+  };
 
   return (
     <div className={styles.mainPage}>
@@ -31,25 +35,27 @@ const MainPage = () => {
             officia dignissimos assumenda praesentium odit unde, quis nostrum
             amet possimus maxime maiores nulla dolorum rerum aspernatur?
           </p>
-          <Button
-            btnType={BTN_TYPES.button}
-            btnStyle={BTN_STYLES.outline.outlineDark}
-            btnColor={BTN_COLOR.dark}
-            value="Play"
-            action={onOpenModal}
-          />
+          {isAuthenticated ? (
+            <Button
+              btnType={BTN_TYPES.button}
+              btnStyle={BTN_STYLES.outline.outlineDark}
+              btnColor={BTN_COLOR.dark}
+              onClick={() => routeChange(ROUTES.game.url)}
+            >
+              Play
+            </Button>
+          ) : (
+            <Button
+              btnType={BTN_TYPES.button}
+              btnStyle={BTN_STYLES.outline.outlineDark}
+              btnColor={BTN_COLOR.dark}
+              onClick={() => routeChange(ROUTES.auth.url)}
+            >
+              Sign in
+            </Button>
+          )}
         </div>
       </div>
-      <Modal
-        open={open}
-        onClose={onCloseModal}
-        center
-        classNames={{
-          modal: styles.modal,
-        }}
-      >
-        <AuthForm />
-      </Modal>
     </div>
   );
 };

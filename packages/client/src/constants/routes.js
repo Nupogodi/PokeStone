@@ -11,9 +11,7 @@ export const ROUTES = {
     title: 'High Score',
   },
   about: { url: '/about', title: 'About' },
-  signIn: { url: '/signin', title: 'Sign in' },
-  signUp: { url: '/signup', title: 'Sign Up' },
-  signOut: { url: '/signout', title: 'Sign Out' },
+  auth: { url: '/auth', title: 'Auth' },
 };
 
 export const NAVBAR_MENU = {
@@ -24,10 +22,16 @@ export const NAVBAR_MENU = {
       icon: ICON_TYPES.home,
     },
     game: { url: ROUTES.game.url, title: 'Game', icon: ICON_TYPES.game },
-    signIn: {
-      url: ROUTES.signIn.url,
-      title: 'Sign In',
-      icon: ICON_TYPES.signIn,
+    auth: {
+      signin: {
+        title: 'Sign In',
+        icon: ICON_TYPES.signin,
+        url: ROUTES.auth.url,
+      },
+      signout: {
+        title: 'Sign Out',
+        icon: ICON_TYPES.signout,
+      },
     },
   },
   subMenu: {
@@ -76,11 +80,11 @@ export const API_ROUTES = {
   auth: {
     signin: {
       title: 'Sign in',
-      url: '/signin',
+      url: '/auth/signin',
     },
     signup: {
       title: 'Sign up',
-      url: '/signup',
+      url: '/auth/signup',
     },
   },
   users: {
@@ -89,9 +93,3 @@ export const API_ROUTES = {
     updateUser: '/users',
   },
 };
-
-// POST Sign In
-// POST Sign Up
-// GET User
-// GET Users
-// PUT User

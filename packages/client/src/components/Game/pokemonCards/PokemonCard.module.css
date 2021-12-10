@@ -10,7 +10,7 @@
 
   text-transform: capitalize;
 
-  color: var(--color-white);
+  color: var(--color-dark-gray);
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
@@ -96,5 +96,3 @@
 .stats__bar {
   flex: 1;
 }
-
-/*  Utilities */

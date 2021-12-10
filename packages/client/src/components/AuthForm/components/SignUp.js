@@ -1,30 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 
+// Utility
+import { toast } from 'react-toastify';
+
+// Auth
+import { useProvideAuth } from 'hooks/useAuth';
+
+// Components
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
+
+// Styles
 import styles from '../AuthForm.module.css';
 
-const SignUp = ({ action }) => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    confirmPassword: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+const SignUp = () => {
+  const { signup } = useProvideAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // const response = await pokemonApi.post(API_ROUTES.auth.signup, {
-      //   formData,
-      // });
-      console.log(formData);
+      setIsSubmitting(true);
+      const response = await signup(username, password, confirmPassword);
+      setIsSubmitting(false);
+      toast.success(response.data.msg);
     } catch (error) {
+      setIsSubmitting(false);
       console.log(error);
+      if (error.response) {
+        toast.error(error.response.data.error || error.message);
+      } else if (error.message) {
+        toast.error(error.message);
+      } else {
+        toast.error('Something went wrong.');
+      }
     }
   };
 
@@ -38,7 +49,7 @@ const SignUp = ({ action }) => {
         type="text"
         name="username"
         id="username"
-        onChange={handleChange}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <label className={`${styles.label} smaller`} htmlFor="password">
         Password
@@ -48,7 +59,7 @@ const SignUp = ({ action }) => {
         type="password"
         name="password"
         id="password"
-        onChange={handleChange}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <label className={`${styles.label} smaller`} htmlFor="confirmPassword">
         Confirm Password
@@ -58,13 +69,13 @@ const SignUp = ({ action }) => {
         type="password"
         name="confirmPassword"
         id="confirmPassword"
-        onChange={handleChange}
+        onChange={(e) => setConfirmPassword(e.target.value)}
       />
       <button type="submit" className={styles.submitBtn}>
-        Sign Up
+        {isSubmitting ? <LoadingSpinner /> : 'Sign Up'}
       </button>
     </form>
   );
 };
 
-export default SignUp;
+export default memo(SignUp);
