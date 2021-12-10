@@ -22,7 +22,8 @@
 
   /* Box Shadow */
   /* stylelint-disable-next-line */
-  --box-shadow: rgba(149, 157, 165, 20%) 0px 8px 24px;
+  --box-shadow: rgba(149, 157, 165, 20%) 0 8px 24px;
+  --box-shadow-bar: rgba(33, 35, 38, 10%) 0 10px 10px -10px;
 
   /* Z-index */
   --z-index-0: 0;

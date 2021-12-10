@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 //  Context
 import CurrentGameContext from 'context/currentGame/context';
@@ -6,28 +6,17 @@ import CurrentGameContext from 'context/currentGame/context';
 // Constants
 import {
   MAX_SELECTED,
-  ICON_TYPES,
   BTN_STYLES,
   BTN_COLOR,
   STAGES_CONFIG,
-  CARD_TEXTURES,
-  CARD_STAT_COLORS,
 } from 'constants/index';
 
 // Components
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
-import Icon from 'components/Icon/Icon';
-import NameScroll from 'components/Game/NameScroll/NameScroll';
 import Button from 'components/Button/Button';
 import PokemonCard from 'components/Game/pokemonCards/PokemonCard';
+
 // Styles
 import styles from './SideBar.module.css';
-
-// const PokemonSlot = () => {
-
-//   return (
-//   );
-// };
 
 const SideBar = ({ className }) => {
   const currentGameContext = useContext(CurrentGameContext);

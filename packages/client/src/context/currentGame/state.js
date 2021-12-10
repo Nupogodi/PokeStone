@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 // API
 import { pokemonApi } from 'utils/api';
@@ -10,8 +10,6 @@ import CurrentGameContext from './context';
 // Constants
 
 const CurrentGameState = ({ children }) => {
-  // const [users, setUsers] = useState([]);
-  // const [user, setUser] = useState(null);
   const [pending, setPending] = useState(false);
 
   // Game State
@@ -20,7 +18,6 @@ const CurrentGameState = ({ children }) => {
   const [pokemonList, setPokemonList] = useState([]);
 
   // Methods
-
   // Selection Stage of the game
   const getPokemons = async (config) => {
     try {
@@ -60,22 +57,32 @@ const CurrentGameState = ({ children }) => {
       ),
     );
   };
+
+  // Memoized methods and states to prevent extra rerendering
+  const memoCurrentGameContext = useMemo(
+    () => ({
+      currentGameStage,
+      setCurrentGameStage,
+    }),
+    [currentGameStage],
+  );
+
+  const value = useMemo(
+    () => ({
+      selectedPokemons,
+      setSelectedPokemons,
+      pokemonList,
+      setPokemonList,
+      pending,
+      setPending,
+      getPokemons,
+      selectPokemon,
+      deselectPokemon,
+    }),
+    [currentGameStage, selectedPokemons, pokemonList, pending],
+  );
   return (
-    <CurrentGameContext.Provider
-      // eslint-disable-next-line
-      value={{
-        // users,
-        // user,
-        pending,
-        currentGameStage,
-        setCurrentGameStage,
-        selectedPokemons,
-        pokemonList,
-        getPokemons,
-        selectPokemon,
-        deselectPokemon,
-      }}
-    >
+    <CurrentGameContext.Provider value={value}>
       {children}
     </CurrentGameContext.Provider>
   );

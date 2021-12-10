@@ -15,9 +15,6 @@ const PokemonCard = (props) => {
 
   const { stats, sprites, name, types } = pokemon;
 
-  //  Stats deconstruction
-  const { attack, defense, hp } = stats;
-
   return (
     <ButtonWrapper onClick={onClick}>
       <div className={`${className} ${styles.pokemonCard}`}>

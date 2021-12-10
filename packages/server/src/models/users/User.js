@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema(
     password_hash: {
       type: String,
       required: true,
-      maxLength: 15,
     },
 
     current_score: {
@@ -34,8 +33,18 @@ const userSchema = new mongoose.Schema(
 
     pokemon_list: [
       {
-        type: ObjectId,
-        ref: 'Pokemon',
+        pokemon: {
+          type: ObjectId,
+          ref: 'Pokemon',
+        },
+        currentLevel: { type: Number },
+        currentExp: { type: Number },
+        currentStats: {
+          hp: { type: Number },
+          attack: { type: Number },
+          defense: { type: Number },
+          speed: { type: Number },
+        },
       },
     ],
   },

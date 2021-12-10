@@ -1,4 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+// Auth
+import { useAuth } from 'hooks/useAuth';
 
 // Constants
 import {
@@ -6,12 +10,23 @@ import {
   BTN_COLOR,
   BTN_STYLES,
   STAGES_CONFIG,
+  ROUTES,
 } from 'constants/index';
 
 // Components
 import Button from 'components/Button/Button';
 
 const InitStage = ({ setCurrentGameStage }) => {
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
+  const history = useHistory();
+
+  const routeChange = (path) => {
+    history.push(path);
+  };
+
   return (
     <>
       <img
@@ -28,13 +43,26 @@ const InitStage = ({ setCurrentGameStage }) => {
         aperiam! Suscipit, eum odio libero accusantium ex a quidem facere atque
         earum iusto sapiente nemo?
       </p>
-      <Button
-        btnType={BTN_TYPES.button}
-        btnStyle={BTN_STYLES.outline.outlineDark}
-        btnColor={BTN_COLOR.dark}
-        value="Play Game"
-        action={() => setCurrentGameStage(STAGES_CONFIG.selection)}
-      />
+
+      {isAuthenticated ? (
+        <Button
+          btnType={BTN_TYPES.button}
+          btnStyle={BTN_STYLES.outline.outlineDark}
+          btnColor={BTN_COLOR.dark}
+          onClick={() => setCurrentGameStage(STAGES_CONFIG.selection)}
+        >
+          Play
+        </Button>
+      ) : (
+        <Button
+          btnType={BTN_TYPES.button}
+          btnStyle={BTN_STYLES.outline.outlineDark}
+          btnColor={BTN_COLOR.dark}
+          onClick={() => routeChange(ROUTES.auth.url)}
+        >
+          Sign in
+        </Button>
+      )}
     </>
   );
 };

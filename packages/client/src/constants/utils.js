@@ -4,7 +4,7 @@ import {
   AiOutlineLogin,
 } from 'react-icons/ai';
 import { BiUserCircle } from 'react-icons/bi';
-import { FaEllipsisV } from 'react-icons/fa';
+import { FaEllipsisV, FaSpinner } from 'react-icons/fa';
 import { VscSignOut } from 'react-icons/vsc';
 import { MdOutlineFormatListNumberedRtl } from 'react-icons/md';
 import { ReactComponent as PlayIcon } from 'assets/img/poke-ball/poke-ball.svg';
@@ -23,10 +23,11 @@ export const ICONS = {
   defense: DefenseIcon,
   speed: SpeedIcon,
   hp: StaminaIcon,
-  signUp: AiOutlineLogin,
-  signIn: AiOutlineLogin,
-  signOut: VscSignOut,
+  signup: AiOutlineLogin,
+  signin: AiOutlineLogin,
+  signout: VscSignOut,
   user: BiUserCircle,
+  loadingSpinner: FaSpinner,
 };
 
 export const ICON_TYPES = {
@@ -40,11 +41,12 @@ export const ICON_TYPES = {
   attack: 'attack',
   defense: 'defense',
   hp: 'hp',
-  signUp: 'signUp',
-  signIn: 'signIn',
-  signOut: 'signOut',
+  signup: 'signup',
+  signin: 'signin',
+  signout: 'signout',
   user: 'user',
   speed: 'speed',
+  loadingSpinner: 'loadingSpinner',
 };
 
 export const BTN_TYPES = {

@@ -1,7 +1,7 @@
 .navBar {
   height: var(--navbar-height);
 
-  border: 1px solid rebeccapurple;
+  box-shadow: var(--box-shadow-bar);
 }
 
 .navTitle {
@@ -10,24 +10,17 @@
   height: 100%;
 }
 
-.mainMenu {
-  /* border: 2px solid green; */
-}
-
 .mainMenu,
 .subMenu {
   display: flex;
 }
 
 .navItem {
-  /* border: 1px solid salmon; */
   margin: 0 0.5em;
 
   display: flex;
   min-width: 10px;
 }
-
-/*  Hover Effect */
 
 .subMenu .navItem {
   padding: 0.5em;

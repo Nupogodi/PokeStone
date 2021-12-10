@@ -1,7 +1,14 @@
 import React, { useReducer, useEffect, useContext, createContext } from 'react';
 import useRouter from 'hooks/useRouter';
-import { pokemonApi } from 'utils/api';
+
+// Utility
+import { toast } from 'react-toastify';
+
+//  Constants
 import { API_ROUTES } from 'constants/index';
+
+// API
+import { pokemonApi } from 'utils/api';
 
 const initialState = {
   isAuthenticated: null,
@@ -21,7 +28,7 @@ const reducer = (state, action) => {
         user: action.payload,
       };
     case LOG_OUT:
-      localStorage.removeItem('AlbumKeeperUser');
+      localStorage.removeItem('PokeStoneUser');
       return {
         ...state,
         isAuthenticated: false,
@@ -62,7 +69,7 @@ export function useProvideAuth() {
 
   const signin = async (username, password) => {
     try {
-      const response = await pokemonApi.post(API_ROUTES.auth.signIn, {
+      const response = await pokemonApi.post(API_ROUTES.auth.signin.url, {
         username,
         password,
       });
@@ -71,6 +78,7 @@ export function useProvideAuth() {
         type: LOG_IN,
         payload: response.data,
       });
+      router.push('/');
       return response;
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -83,11 +91,12 @@ export function useProvideAuth() {
     }
   };
 
-  const signup = async (username, password) => {
+  const signup = async (username, password, confirmPassword) => {
     try {
-      await pokemonApi.post(API_ROUTES.auth.register, {
+      await pokemonApi.post(API_ROUTES.auth.signup.url, {
         username,
         password,
+        confirmPassword,
       });
       return await signin(username, password);
     } catch (error) {
@@ -106,6 +115,7 @@ export function useProvideAuth() {
       type: LOG_OUT,
     });
     router.push('/');
+    toast.success('You have successfully signed out.');
   };
 
   const getCurrentUser = () =>

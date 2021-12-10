@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+// Auth
+import { useProvideAuth, useAuth } from 'hooks/useAuth';
+
 // Constants
 import { NAVBAR_MENU } from 'constants/index';
 import Container from 'components/wrappers/Container/Container';
@@ -15,10 +18,15 @@ import styles from './NavBar.module.css';
 const NavBar = () => {
   const [expandMenu, setExpandMenu] = useState(false);
 
+  //  Auth
+  const { signout } = useProvideAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
   const toggleMenu = () => {
     setExpandMenu(!expandMenu);
   };
-
   return (
     <nav className={styles.navBar}>
       <Container className={`${styles.flexWrapper}`}>
@@ -27,6 +35,32 @@ const NavBar = () => {
         </NavLink>
         <ul className={styles.mainMenu}>
           {Object.entries(NAVBAR_MENU.menu).map(([key, value]) => {
+            if (key === 'auth') {
+              return (
+                <>
+                  {isAuthenticated ? (
+                    <ButtonWrapper key={key} onClick={() => signout()}>
+                      <li className={styles.navItem}>
+                        <Icon iconType={value.signout.icon} />
+                        <p className={styles.navItem__label}>
+                          {value.signout.title}
+                        </p>
+                      </li>
+                    </ButtonWrapper>
+                  ) : (
+                    <NavLink key={key} to={value.signin.url}>
+                      <li className={styles.navItem}>
+                        <Icon iconType={value.signin.icon} />
+                        <p className={styles.navItem__label}>
+                          {value.signin.title}
+                        </p>
+                      </li>
+                    </NavLink>
+                  )}
+                </>
+              );
+            }
+
             return (
               <NavLink key={key} to={value.url}>
                 <li className={styles.navItem}>
@@ -36,6 +70,7 @@ const NavBar = () => {
               </NavLink>
             );
           })}
+
           <ButtonWrapper onClick={toggleMenu}>
             <li
               className={` ${styles.navItem} ${styles.relative} ${

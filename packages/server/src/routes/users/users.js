@@ -1,5 +1,5 @@
 const express = require('express');
-const {User} = require('../../models/index');
+const { User } = require('../../models/index');
 const chalk = require('chalk');
 
 const router = express.Router();
@@ -32,32 +32,6 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-// @POST /api/users - Public (post a new user)
-router.post('/', async (req, res, next) => {
-  const { username, score, pokemonList } = req.body;
-
-  try {
-    let user = await User.findOne({ username });
-
-    if (user) {
-      res.status(400).json({ msg: 'User already exists.' });
-    } else {
-      user = new User({
-        username,
-        score,
-        pokemonList,
-      });
-
-      await user.save();
-
-      res.status(200).json({ msg: 'New user has been created' });
-    }
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
 // @PUT /api/users:id - Public (update user)
 router.put('/:id', async (req, res, next) => {
   // console.log(chalk.red(req));
@@ -72,12 +46,10 @@ router.put('/:id', async (req, res, next) => {
     if (user) {
       user = await User.findByIdAndUpdate(req.params.id, update, { new: true });
 
-      res
-        .status(200)
-        .json({
-          msg: 'User has been successfully updated.',
-          user: user.toJSON(),
-        });
+      res.status(200).json({
+        msg: 'User has been successfully updated.',
+        user: user.toJSON(),
+      });
     } else {
       res.status(400).json({ msg: 'User not found.' });
     }

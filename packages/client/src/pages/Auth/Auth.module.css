@@ -1,0 +1,21 @@
+.authPage {
+  margin: 0 auto;
+
+  min-height: var(--game-window-height);
+
+  background-image: url('assets/img/pokemon-hero-4.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.authForm {
+  padding-top: 3rem;
+
+  min-height: inherit;
+}
+
+/* Utility */
+.fullHeight {
+  min-height: inherit;
+}
